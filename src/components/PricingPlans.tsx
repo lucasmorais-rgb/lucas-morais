@@ -5,69 +5,52 @@ export const PricingPlans: React.FC = () => {
   const plans = [
     {
       id: 'basic',
-      name: 'Plano Básico',
-      price: 'R$ 29,90',
+      name: 'Plano Essencial',
+      price: 'R$ 47,00',
       period: '/mês',
-      description: 'Perfeito para quem está começando sua jornada',
+      description: 'Ideal para quem quer começar a transformação',
       icon: Star,
       color: 'from-blue-400 to-blue-600',
       borderColor: 'border-blue-400/50',
+      link: 'https://pay.kiwify.com.br/SUYG0HN',
       features: [
-        'Cálculo de IMC e TMB',
-        'Plano alimentar básico',
-        'Acompanhamento de peso',
-        'Suporte por email',
-        'Acesso ao app mobile'
+        'Acesso completo ao aplicativo',
+        'Cálculos personalizados (IMC, TMB)',
+        'Planos alimentares básicos',
+        'Acompanhamento de progresso',
+        'Suporte via chat',
+        'Receitas saudáveis'
       ],
       popular: false
     },
     {
       id: 'premium',
-      name: 'Plano Premium',
-      price: 'R$ 59,90',
+      name: 'Plano Completo',
+      price: 'R$ 97,00',
       period: '/mês',
-      description: 'O mais escolhido! Transformação completa',
+      description: 'O mais completo! Transformação total garantida',
       icon: Crown,
       color: 'from-purple-400 to-purple-600',
       borderColor: 'border-purple-400/50',
+      link: 'https://pay.kiwify.com.br/VSuGzQr',
       features: [
-        'Tudo do plano básico',
+        'Tudo do plano essencial',
         'IA Nutricional personalizada',
-        'Planos de treino customizados',
-        'Acompanhamento completo de medidas',
+        'Consultoria nutricional especializada',
+        'Planos de treino personalizados',
+        'Acompanhamento médico virtual',
         'Receitas exclusivas',
-        'Suporte prioritário 24/7',
-        'Relatórios detalhados',
-        'Comunidade VIP'
+        'Suporte prioritário',
+        'Relatórios avançados',
+        'Comunidade VIP exclusiva'
       ],
       popular: true
-    },
-    {
-      id: 'elite',
-      name: 'Plano Elite',
-      price: 'R$ 99,90',
-      period: '/mês',
-      description: 'Para quem busca resultados extraordinários',
-      icon: Sparkles,
-      color: 'from-yellow-400 to-orange-500',
-      borderColor: 'border-yellow-400/50',
-      features: [
-        'Tudo do plano premium',
-        'Consultoria nutricional 1:1',
-        'Personal trainer virtual',
-        'Análise corporal avançada',
-        'Suplementação personalizada',
-        'Acompanhamento médico',
-        'Acesso antecipado a novidades',
-        'Garantia de resultados'
-      ],
-      popular: false
     }
   ];
 
-  const handlePlanSelect = (planId: string) => {
-    // Redireciona para o link da Kiwify
-    window.open('https://pay.kiwify.com.br/b73TeZ4', '_blank');
+  const handlePlanSelect = (link: string) => {
+    // Redireciona para o link específico da Kiwify
+    window.open(link, '_blank');
   };
 
   const PlanCard: React.FC<{ plan: typeof plans[0] }> = ({ plan }) => {
@@ -109,7 +92,7 @@ export const PricingPlans: React.FC = () => {
         </ul>
 
         <button
-          onClick={() => handlePlanSelect(plan.id)}
+          onClick={() => handlePlanSelect(plan.link)}
           className={`w-full py-4 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 ${
             plan.popular
               ? 'bg-gradient-to-r from-purple-400 to-purple-600 text-white hover:from-purple-500 hover:to-purple-700'
@@ -138,7 +121,7 @@ export const PricingPlans: React.FC = () => {
       </div>
 
       {/* Plans Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
         {plans.map((plan) => (
           <PlanCard key={plan.id} plan={plan} />
         ))}
@@ -218,7 +201,7 @@ export const PricingPlans: React.FC = () => {
         <h3 className="text-2xl font-bold text-white mb-4">Pronto para transformar sua vida?</h3>
         <p className="text-gray-300 mb-6">Junte-se a milhares de pessoas que já alcançaram seus objetivos</p>
         <button
-          onClick={() => handlePlanSelect('premium')}
+          onClick={() => handlePlanSelect('https://pay.kiwify.com.br/VSuGzQr')}
           className="bg-gradient-to-r from-green-400 to-blue-400 text-white px-8 py-4 rounded-xl font-semibold hover:from-green-500 hover:to-blue-500 transition-all transform hover:scale-105 flex items-center gap-2 mx-auto"
         >
           Começar Agora
