@@ -4,7 +4,8 @@ import { HealthMetrics } from './HealthMetrics';
 import { MealPlan } from './MealPlan';
 import { AIChat } from './AIChat';
 import { ProgressTracker } from './ProgressTracker';
-import { ArrowLeft, Heart, Activity, Utensils, MessageSquare, TrendingUp } from 'lucide-react';
+import { PricingPlans } from './PricingPlans';
+import { ArrowLeft, Heart, Activity, Utensils, MessageSquare, TrendingUp, Crown } from 'lucide-react';
 
 interface DashboardProps {
   personalData: PersonalData;
@@ -12,13 +13,14 @@ interface DashboardProps {
 }
 
 export const Dashboard: React.FC<DashboardProps> = ({ personalData, onBack }) => {
-  const [activeTab, setActiveTab] = useState<'metrics' | 'meals' | 'chat' | 'progress'>('metrics');
+  const [activeTab, setActiveTab] = useState<'metrics' | 'meals' | 'chat' | 'progress' | 'plans'>('metrics');
 
   const tabs = [
     { id: 'metrics', label: 'Métricas', icon: Activity },
     { id: 'meals', label: 'Refeições', icon: Utensils },
     { id: 'chat', label: 'IA Nutricional', icon: MessageSquare },
-    { id: 'progress', label: 'Progresso', icon: TrendingUp }
+    { id: 'progress', label: 'Progresso', icon: TrendingUp },
+    { id: 'plans', label: 'Planos', icon: Crown }
   ];
 
   return (
@@ -75,6 +77,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ personalData, onBack }) =>
           {activeTab === 'meals' && <MealPlan personalData={personalData} />}
           {activeTab === 'chat' && <AIChat personalData={personalData} />}
           {activeTab === 'progress' && <ProgressTracker personalData={personalData} />}
+          {activeTab === 'plans' && <PricingPlans />}
         </div>
       </div>
     </div>
