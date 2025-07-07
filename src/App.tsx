@@ -8,7 +8,7 @@ function App() {
   const [personalData, setPersonalData] = useState<PersonalData | null>(null);
   const [userSubscription, setUserSubscription] = useState<UserSubscription>({
     isPremium: false,
-    coins: 20, // 20 moedas gratuitas para começar
+    coins: 7, // 7 moedas gratuitas para começar
     isUnlimited: false
   });
 
