@@ -115,7 +115,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
               </button>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Navigation Tabs */}
         <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-2 border border-white/20 mb-6">
