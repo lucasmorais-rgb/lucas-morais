@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import { WelcomeScreen } from './components/WelcomeScreen';
 import { Dashboard } from './components/Dashboard';
-import { PersonalData } from './types/PersonalData';
+import { PersonalData, UserSubscription } from './types/PersonalData';
 
 function App() {
   const [currentScreen, setCurrentScreen] = useState<'welcome' | 'dashboard'>('welcome');
   const [personalData, setPersonalData] = useState<PersonalData | null>(null);
+  const [userSubscription, setUserSubscription] = useState<UserSubscription>({
+    isPremium: false,
+    coins: 20, // 20 moedas gratuitas para começar
+    isUnlimited: false
+  });
 
   const handleDataSubmit = (data: PersonalData) => {
     setPersonalData(data);
@@ -17,12 +22,21 @@ function App() {
     setPersonalData(null);
   };
 
+  const handleSubscriptionUpdate = (subscription: UserSubscription) => {
+    setUserSubscription(subscription);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
       {currentScreen === 'welcome' ? (
         <WelcomeScreen onDataSubmit={handleDataSubmit} />
       ) : (
-        <Dashboard personalData={personalData!} onBack={handleBackToWelcome} />
+        <Dashboard 
+          personalData={personalData!} 
+          userSubscription={userSubscription}
+          onBack={handleBackToWelcome}
+          onSubscriptionUpdate={handleSubscriptionUpdate}
+        />
       )}
     </div>
   );

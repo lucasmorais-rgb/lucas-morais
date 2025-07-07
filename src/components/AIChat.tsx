@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { PersonalData } from '../types/PersonalData';
-import { MessageSquare, Send, Bot, User, Sparkles } from 'lucide-react';
+import { PersonalData, UserSubscription } from '../types/PersonalData';
+import { MessageSquare, Send, Bot, User, Sparkles, Coins, Lock } from 'lucide-react';
 
 interface AIChatProps {
   personalData: PersonalData;
+  userSubscription: UserSubscription;
+  onSubscriptionUpdate: (subscription: UserSubscription) => void;
 }
 
 interface Message {
@@ -13,7 +15,7 @@ interface Message {
   timestamp: Date;
 }
 
-export const AIChat: React.FC<AIChatProps> = ({ personalData }) => {
+export const AIChat: React.FC<AIChatProps> = ({ personalData, userSubscription, onSubscriptionUpdate }) => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
@@ -24,6 +26,8 @@ export const AIChat: React.FC<AIChatProps> = ({ personalData }) => {
   ]);
   const [inputMessage, setInputMessage] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+
+  const canSendMessage = userSubscription.isUnlimited || userSubscription.coins > 0;
 
   const predefinedAnswers: { [key: string]: string } = {
     'tapioca': 'A tapioca é uma excelente opção! É rica em carboidratos complexos e tem baixo índice glicêmico. À noite, se seu objetivo é perder gordura, consuma com moderação (1 tapioca pequena) e combine com proteína magra como queijo cottage ou peito de peru.',
@@ -61,7 +65,15 @@ export const AIChat: React.FC<AIChatProps> = ({ personalData }) => {
   };
 
   const handleSendMessage = () => {
-    if (!inputMessage.trim()) return;
+    if (!inputMessage.trim() || !canSendMessage) return;
+
+    // Deduzir moeda se não for premium
+    if (!userSubscription.isUnlimited) {
+      onSubscriptionUpdate({
+        ...userSubscription,
+        coins: Math.max(0, userSubscription.coins - 1)
+      });
+    }
 
     const userMessage: Message = {
       id: Date.now().toString(),
@@ -117,10 +129,17 @@ export const AIChat: React.FC<AIChatProps> = ({ personalData }) => {
               <button
                 key={index}
                 onClick={() => {
-                  setInputMessage(question);
-                  setTimeout(() => handleSendMessage(), 100);
+                  if (canSendMessage) {
+                    setInputMessage(question);
+                    setTimeout(() => handleSendMessage(), 100);
+                  }
                 }}
-                className="px-3 py-2 bg-white/10 border border-white/20 rounded-lg text-sm text-gray-300 hover:bg-white/20 transition-all"
+                disabled={!canSendMessage}
+                className={`px-3 py-2 border rounded-lg text-sm transition-all ${
+                  canSendMessage 
+                    ? 'bg-white/10 border-white/20 text-gray-300 hover:bg-white/20' 
+                    : 'bg-gray-700 border-gray-600 text-gray-500 cursor-not-allowed'
+                }`}
               >
                 {question}
               </button>
@@ -168,20 +187,50 @@ export const AIChat: React.FC<AIChatProps> = ({ personalData }) => {
           )}
         </div>
 
+        {/* No Coins Warning */}
+        {!canSendMessage && (
+          <div className="bg-red-500/20 border border-red-500/30 rounded-xl p-4 mb-4">
+            <div className="flex items-center gap-3">
+              <Lock className="w-6 h-6 text-red-400" />
+              <div>
+                <p className="text-red-300 font-medium">Suas moedas acabaram!</p>
+                <p className="text-red-400 text-sm">
+                  Faça upgrade para o Premium e tenha conversas ilimitadas com a IA
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Input Area */}
         <div className="flex gap-3">
+          {!userSubscription.isUnlimited && (
+            <div className="flex items-center gap-2 px-3 py-2 bg-yellow-500/20 border border-yellow-500/30 rounded-xl">
+              <Coins className="w-4 h-4 text-yellow-400" />
+              <span className="text-yellow-300 text-sm font-medium">{userSubscription.coins}</span>
+            </div>
+          )}
           <input
             type="text"
             value={inputMessage}
             onChange={(e) => setInputMessage(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
-            placeholder="Digite sua pergunta sobre nutrição..."
-            className="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-400 transition-all"
+            placeholder={canSendMessage ? "Digite sua pergunta sobre nutrição..." : "Sem moedas disponíveis..."}
+            disabled={!canSendMessage}
+            className={`flex-1 px-4 py-3 border rounded-xl text-white placeholder-gray-400 focus:outline-none transition-all ${
+              canSendMessage 
+                ? 'bg-white/10 border-white/20 focus:ring-2 focus:ring-purple-400' 
+                : 'bg-gray-700 border-gray-600 cursor-not-allowed'
+            }`}
           />
           <button
             onClick={handleSendMessage}
-            disabled={!inputMessage.trim() || isTyping}
-            className="px-4 py-3 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl text-white font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:from-purple-600 hover:to-blue-600 transition-all"
+            disabled={!inputMessage.trim() || isTyping || !canSendMessage}
+            className={`px-4 py-3 rounded-xl text-white font-medium transition-all ${
+              canSendMessage && inputMessage.trim() && !isTyping
+                ? 'bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600'
+                : 'bg-gray-600 cursor-not-allowed opacity-50'
+            }`}
           >
             <Send className="w-5 h-5" />
           </button>

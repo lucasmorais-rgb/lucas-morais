@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { PersonalData } from '../types/PersonalData';
-import { Utensils, Clock, Users, ChefHat, AlertTriangle, Sparkles } from 'lucide-react';
+import { PersonalData, UserSubscription } from '../types/PersonalData';
+import { Utensils, Clock, Users, ChefHat, AlertTriangle, Sparkles, Coins, Lock } from 'lucide-react';
 
 interface MealPlanProps {
   personalData: PersonalData;
+  userSubscription: UserSubscription;
+  onSubscriptionUpdate: (subscription: UserSubscription) => void;
 }
 
 interface Meal {
@@ -19,8 +21,24 @@ interface Meal {
   tips: string[];
 }
 
-export const MealPlan: React.FC<MealPlanProps> = ({ personalData }) => {
+export const MealPlan: React.FC<MealPlanProps> = ({ personalData, userSubscription, onSubscriptionUpdate }) => {
   const [selectedMeal, setSelectedMeal] = useState<Meal | null>(null);
+
+  const canViewMealDetails = userSubscription.isUnlimited || userSubscription.coins > 0;
+
+  const handleMealClick = (meal: Meal) => {
+    if (!canViewMealDetails) return;
+    
+    // Deduzir moeda se não for premium
+    if (!userSubscription.isUnlimited) {
+      onSubscriptionUpdate({
+        ...userSubscription,
+        coins: Math.max(0, userSubscription.coins - 1)
+      });
+    }
+    
+    setSelectedMeal(meal);
+  };
 
   const generateMealPlan = (): Meal[] => {
     const { goal } = personalData;
@@ -121,8 +139,12 @@ export const MealPlan: React.FC<MealPlanProps> = ({ personalData }) => {
 
   const MealCard: React.FC<{ meal: Meal }> = ({ meal }) => (
     <div 
-      className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all cursor-pointer"
-      onClick={() => setSelectedMeal(meal)}
+      className={`bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 transition-all ${
+        canViewMealDetails 
+          ? 'hover:bg-white/15 cursor-pointer' 
+          : 'opacity-75 cursor-not-allowed'
+      }`}
+      onClick={() => handleMealClick(meal)}
     >
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-3">
@@ -162,10 +184,19 @@ export const MealPlan: React.FC<MealPlanProps> = ({ personalData }) => {
         <div className="text-gray-300 text-sm">
           {meal.ingredients.length} ingredientes
         </div>
-        <div className="text-green-400 text-sm font-medium">
-          Ver receita →
+        <div className={`text-sm font-medium ${canViewMealDetails ? 'text-green-400' : 'text-gray-500'}`}>
+          {canViewMealDetails ? 'Ver receita →' : <Lock className="w-4 h-4" />}
         </div>
       </div>
+      
+      {!canViewMealDetails && (
+        <div className="mt-4 p-3 bg-red-500/20 border border-red-500/30 rounded-xl">
+          <div className="flex items-center gap-2">
+            <Lock className="w-4 h-4 text-red-400" />
+            <span className="text-red-300 text-sm">Sem moedas para ver detalhes</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 
@@ -206,6 +237,12 @@ export const MealPlan: React.FC<MealPlanProps> = ({ personalData }) => {
         <div className="flex items-center gap-3 mb-4">
           <AlertTriangle className="w-6 h-6 text-red-400" />
           <h3 className="text-lg font-semibold text-white">Alimentos a Evitar</h3>
+          {!userSubscription.isUnlimited && (
+            <div className="flex items-center gap-1 ml-auto">
+              <Coins className="w-4 h-4 text-yellow-400" />
+              <span className="text-yellow-300 text-sm">{userSubscription.coins}</span>
+            </div>
+          )}
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">

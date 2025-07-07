@@ -1,10 +1,33 @@
 import React from 'react';
+import { UserSubscription } from '../types/PersonalData';
 import { Crown, Star, Zap, Check, ExternalLink, Sparkles, Heart, Target } from 'lucide-react';
 
-export const PricingPlans: React.FC = () => {
+interface PricingPlansProps {
+  onSubscriptionUpdate: (subscription: UserSubscription) => void;
+}
+
+export const PricingPlans: React.FC<PricingPlansProps> = ({ onSubscriptionUpdate }) => {
   const handlePlanSelect = () => {
-    // Redireciona para o link da Kiwify
-    window.open('https://pay.kiwify.com.br/b73TeZ4', '_blank');
+    // Simular pagamento bem-sucedido (em produção, isso viria do webhook da Kiwify)
+    const confirmPayment = confirm(
+      'Simular pagamento bem-sucedido?\n\n' +
+      'Em produção, você seria redirecionado para a Kiwify e após o pagamento, ' +
+      'um webhook atualizaria automaticamente sua conta para Premium com moedas ilimitadas.'
+    );
+    
+    if (confirmPayment) {
+      // Atualizar para Premium com moedas ilimitadas
+      onSubscriptionUpdate({
+        isPremium: true,
+        coins: 0, // Não importa o número quando é ilimitado
+        isUnlimited: true
+      });
+      
+      alert('🎉 Parabéns! Agora você tem acesso Premium com moedas ilimitadas!');
+    } else {
+      // Redirecionar para Kiwify
+      window.open('https://pay.kiwify.com.br/b73TeZ4', '_blank');
+    }
   };
 
   return (
@@ -71,7 +94,7 @@ export const PricingPlans: React.FC = () => {
             onClick={handlePlanSelect}
             className="w-full py-4 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 bg-gradient-to-r from-purple-400 to-purple-600 text-white hover:from-purple-500 hover:to-purple-700 transform hover:scale-105 text-lg"
           >
-            Começar Transformação Agora
+            Ativar Premium - Moedas Ilimitadas
             <ExternalLink className="w-5 h-5" />
           </button>
 
@@ -214,7 +237,7 @@ export const PricingPlans: React.FC = () => {
           className="bg-gradient-to-r from-purple-400 to-blue-400 text-white px-12 py-4 rounded-xl font-bold text-xl hover:from-purple-500 hover:to-blue-500 transition-all transform hover:scale-105 flex items-center gap-3 mx-auto shadow-2xl"
         >
           <Crown className="w-6 h-6" />
-          Assinar por R$ 19,90/mês
+          Ativar Moedas Ilimitadas - R$ 19,90/mês
           <ExternalLink className="w-5 h-5" />
         </button>
         

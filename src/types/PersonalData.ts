@@ -16,3 +16,9 @@ export interface HealthMetrics {
   bmiCategory: string;
   idealWeight: number;
 }
+
+export interface UserSubscription {
+  isPremium: boolean;
+  coins: number;
+  isUnlimited: boolean;
+}
