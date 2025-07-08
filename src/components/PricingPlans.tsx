@@ -8,26 +8,8 @@ interface PricingPlansProps {
 
 export const PricingPlans: React.FC<PricingPlansProps> = ({ onSubscriptionUpdate }) => {
   const handlePlanSelect = () => {
-    // Simular pagamento bem-sucedido (em produção, isso viria do webhook da Kiwify)
-    const confirmPayment = confirm(
-      'Simular pagamento bem-sucedido?\n\n' +
-      'Em produção, você seria redirecionado para a Kiwify e após o pagamento, ' +
-      'um webhook atualizaria automaticamente sua conta para Premium com moedas ilimitadas.'
-    );
-    
-    if (confirmPayment) {
-      // Atualizar para Premium com moedas ilimitadas
-      onSubscriptionUpdate({
-        isPremium: true,
-        coins: 0, // Não importa o número quando é ilimitado
-        isUnlimited: true
-      });
-      
-      alert('🎉 Parabéns! Agora você tem acesso Premium com moedas ilimitadas!');
-    } else {
-      // Redirecionar para Kiwify
-      window.open('https://pay.kiwify.com.br/b73TeZ4', '_blank');
-    }
+    // Redirecionar diretamente para a página de pagamento da Kiwify
+    window.open('https://pay.kiwify.com.br/b73TeZ4', '_blank');
   };
 
   return (
