@@ -31,10 +31,10 @@ export const Dashboard: React.FC<DashboardProps> = ({
   ];
 
   return (
-    <div className="min-h-screen p-4">
+    <div className="min-h-screen p-3 sm:p-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 mb-6">
+        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 sm:p-6 border border-white/20 mb-4 sm:mb-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <button
@@ -43,28 +43,34 @@ export const Dashboard: React.FC<DashboardProps> = ({
               >
                 <ArrowLeft className="w-5 h-5 text-white" />
               </button>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 min-w-0">
                 <Heart className="text-green-400 w-6 h-6" />
-                <h1 className="text-xl font-bold text-white">Seu Corpo Ideal</h1>
+                <h1 className="text-lg sm:text-xl font-bold text-white truncate">Seu Corpo Ideal</h1>
               </div>
             </div>
-            <div className="text-right">
-              <p className="text-white font-semibold">Olá, {personalData.name}!</p>
+            <div className="text-right min-w-0 hidden sm:block">
+              <p className="text-white font-semibold truncate">Olá, {personalData.name}!</p>
               <p className="text-gray-300 text-sm">Vamos transformar sua vida hoje</p>
             </div>
           </div>
           
+          {/* Mobile User Greeting */}
+          <div className="sm:hidden mt-4 text-center">
+            <p className="text-white font-semibold">Olá, {personalData.name}!</p>
+            <p className="text-gray-300 text-sm">Vamos transformar sua vida hoje</p>
+          </div>
+          
           {/* Coins Display */}
           <div className="flex items-center justify-between mt-4 pt-4 border-t border-white/20">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 min-w-0 flex-1">
               <div className="p-2 bg-yellow-500 rounded-xl">
                 <Coins className="w-5 h-5 text-white" />
               </div>
-              <div>
+              <div className="min-w-0 flex-1">
                 <p className="text-white font-medium">
                   {userSubscription.isUnlimited ? 'Moedas Ilimitadas' : `${userSubscription.coins} Moedas`}
                 </p>
-                <p className="text-gray-300 text-sm">
+                <p className="text-gray-300 text-sm truncate">
                   {userSubscription.isPremium ? 'Plano Premium Ativo' : 'Teste Grátis'}
                 </p>
               </div>
@@ -73,9 +79,10 @@ export const Dashboard: React.FC<DashboardProps> = ({
             {!userSubscription.isPremium && userSubscription.coins <= 5 && (
               <button
                 onClick={() => setActiveTab('plans')}
-                className="px-4 py-2 bg-gradient-to-r from-purple-400 to-blue-400 rounded-xl text-white text-sm hover:from-purple-500 hover:to-blue-500 transition-all"
+                className="px-3 sm:px-4 py-2 bg-gradient-to-r from-purple-400 to-blue-400 rounded-xl text-white text-xs sm:text-sm hover:from-purple-500 hover:to-blue-500 transition-all whitespace-nowrap"
               >
-                Upgrade Premium
+                <span className="hidden sm:inline">Upgrade Premium</span>
+                <span className="sm:hidden">Premium</span>
               </button>
             )}
           </div>
@@ -83,14 +90,14 @@ export const Dashboard: React.FC<DashboardProps> = ({
         
         {/* Low Coins Warning */}
         {!userSubscription.isPremium && userSubscription.coins <= 5 && userSubscription.coins > 0 && (
-          <div className="bg-yellow-500/20 border border-yellow-500/30 rounded-2xl p-4 mb-6">
+          <div className="bg-yellow-500/20 border border-yellow-500/30 rounded-2xl p-4 mb-4 sm:mb-6">
             <div className="flex items-center gap-3">
               <Coins className="w-6 h-6 text-yellow-400" />
-              <div>
+              <div className="min-w-0 flex-1">
                 <p className="text-yellow-300 font-medium">
                   Suas moedas estão acabando! ({userSubscription.coins} restantes)
                 </p>
-                <p className="text-yellow-400 text-sm">
+                <p className="text-yellow-400 text-sm break-words">
                   Faça upgrade para o Premium e tenha acesso ilimitado por apenas R$ 19,90/mês
                 </p>
               </div>
@@ -100,16 +107,16 @@ export const Dashboard: React.FC<DashboardProps> = ({
         
         {/* No Coins Warning */}
         {!userSubscription.isPremium && userSubscription.coins === 0 && (
-          <div className="bg-red-500/20 border border-red-500/30 rounded-2xl p-6 mb-6">
+          <div className="bg-red-500/20 border border-red-500/30 rounded-2xl p-4 sm:p-6 mb-4 sm:mb-6">
             <div className="text-center">
               <Coins className="w-12 h-12 text-red-400 mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-white mb-2">Suas moedas acabaram!</h3>
-              <p className="text-red-300 mb-4">
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-2">Suas moedas acabaram!</h3>
+              <p className="text-red-300 mb-4 text-sm sm:text-base">
                 Para continuar usando todas as funcionalidades, faça upgrade para o Plano Premium
               </p>
               <button
                 onClick={() => setActiveTab('plans')}
-                className="px-6 py-3 bg-gradient-to-r from-purple-400 to-blue-400 rounded-xl text-white font-semibold hover:from-purple-500 hover:to-blue-500 transition-all"
+                className="px-4 sm:px-6 py-3 bg-gradient-to-r from-purple-400 to-blue-400 rounded-xl text-white font-semibold hover:from-purple-500 hover:to-blue-500 transition-all text-sm sm:text-base"
               >
                 Ver Planos Premium
               </button>
@@ -118,22 +125,22 @@ export const Dashboard: React.FC<DashboardProps> = ({
         )}
 
         {/* Navigation Tabs */}
-        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-2 border border-white/20 mb-6">
-          <div className="flex gap-2">
+        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-2 border border-white/20 mb-4 sm:mb-6">
+          <div className="flex gap-1 sm:gap-2 overflow-x-auto">
             {tabs.map((tab) => {
               const Icon = tab.icon;
               return (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id as any)}
-                  className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl transition-all ${
+                  className={`flex-1 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 sm:py-3 rounded-xl transition-all whitespace-nowrap ${
                     activeTab === tab.id
                       ? 'bg-gradient-to-r from-green-400 to-blue-400 text-white'
                       : 'text-gray-300 hover:text-white hover:bg-white/10'
                   }`}
                 >
-                  <Icon className="w-4 h-4" />
-                  <span className="font-medium">{tab.label}</span>
+                  <Icon className="w-4 h-4 sm:w-4 sm:h-4" />
+                  <span className="font-medium text-xs sm:text-sm">{tab.label}</span>
                 </button>
               );
             })}

@@ -18,34 +18,34 @@ export const PricingPlans: React.FC<PricingPlansProps> = ({ onSubscriptionUpdate
       <div className="text-center">
         <div className="flex justify-center items-center gap-2 mb-4">
           <Crown className="w-8 h-8 text-purple-400" />
-          <h2 className="text-3xl font-bold text-white">Plano Premium</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-white">Plano Premium</h2>
         </div>
-        <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+        <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto px-4">
           Transforme sua vida com nossa plataforma completa de saúde e bem-estar. 
           Tudo que você precisa para alcançar seus objetivos.
         </p>
       </div>
 
       {/* Main Plan Card */}
-      <div className="max-w-lg mx-auto">
-        <div className="relative bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-purple-400/50 hover:bg-white/15 transition-all transform hover:scale-105 ring-2 ring-purple-400/50">
+      <div className="max-w-lg mx-auto px-4">
+        <div className="relative bg-white/10 backdrop-blur-lg rounded-2xl p-6 sm:p-8 border border-purple-400/50 hover:bg-white/15 transition-all transform hover:scale-105 ring-2 ring-purple-400/50">
           <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-            <div className="bg-gradient-to-r from-purple-400 to-purple-600 text-white px-6 py-2 rounded-full text-sm font-semibold flex items-center gap-2">
+            <div className="bg-gradient-to-r from-purple-400 to-purple-600 text-white px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-semibold flex items-center gap-2">
               <Sparkles className="w-4 h-4" />
               Oferta Especial
             </div>
           </div>
 
           <div className="text-center mb-8">
-            <div className="inline-flex p-4 rounded-xl bg-gradient-to-r from-purple-400 to-purple-600 mb-6">
+            <div className="inline-flex p-3 sm:p-4 rounded-xl bg-gradient-to-r from-purple-400 to-purple-600 mb-6">
               <Crown className="w-10 h-10 text-white" />
             </div>
-            <h3 className="text-3xl font-bold text-white mb-3">Plano Premium</h3>
-            <p className="text-gray-300 mb-6">Transformação completa com IA personalizada</p>
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">Plano Premium</h3>
+            <p className="text-gray-300 mb-6 text-sm sm:text-base">Transformação completa com IA personalizada</p>
             
             <div className="flex items-baseline justify-center gap-2 mb-2">
-              <span className="text-5xl font-bold text-white">R$ 19,90</span>
-              <span className="text-gray-400 text-lg">/mês</span>
+              <span className="text-3xl sm:text-5xl font-bold text-white">R$ 19,90</span>
+              <span className="text-gray-400 text-base sm:text-lg">/mês</span>
             </div>
             <p className="text-green-400 text-sm font-medium">💰 Preço promocional por tempo limitado!</p>
           </div>
@@ -63,20 +63,21 @@ export const PricingPlans: React.FC<PricingPlansProps> = ({ onSubscriptionUpdate
               'Acesso total pelo celular e computador',
               'Garantia de 7 dias ou seu dinheiro de volta'
             ].map((feature, index) => (
-              <li key={index} className="flex items-center gap-3">
+              <li key={index} className="flex items-start gap-3">
                 <div className="flex-shrink-0">
-                  <Check className="w-5 h-5 text-green-400" />
+                  <Check className="w-5 h-5 text-green-400 mt-0.5" />
                 </div>
-                <span className="text-gray-300">{feature}</span>
+                <span className="text-gray-300 text-sm sm:text-base">{feature}</span>
               </li>
             ))}
           </ul>
 
           <button
             onClick={handlePlanSelect}
-            className="w-full py-4 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 bg-gradient-to-r from-purple-400 to-purple-600 text-white hover:from-purple-500 hover:to-purple-700 transform hover:scale-105 text-lg"
+            className="w-full py-3 sm:py-4 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 bg-gradient-to-r from-purple-400 to-purple-600 text-white hover:from-purple-500 hover:to-purple-700 transform hover:scale-105 text-base sm:text-lg"
           >
-            Ativar Premium - Moedas Ilimitadas
+            <span className="hidden sm:inline">Ativar Premium - Moedas Ilimitadas</span>
+            <span className="sm:hidden">Ativar Premium</span>
             <ExternalLink className="w-5 h-5" />
           </button>
 
@@ -87,13 +88,13 @@ export const PricingPlans: React.FC<PricingPlansProps> = ({ onSubscriptionUpdate
       </div>
 
       {/* Benefits Section */}
-      <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
+      <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 sm:p-8 border border-white/20">
         <div className="text-center mb-8">
-          <h3 className="text-2xl font-bold text-white mb-4">Por que escolher o Seu Corpo Ideal?</h3>
-          <p className="text-gray-300">Mais de 10.000 pessoas já transformaram suas vidas conosco</p>
+          <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Por que escolher o Seu Corpo Ideal?</h3>
+          <p className="text-gray-300 text-sm sm:text-base">Mais de 10.000 pessoas já transformaram suas vidas conosco</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           <div className="text-center">
             <div className="bg-green-500 p-3 rounded-xl w-fit mx-auto mb-4">
               <Target className="w-6 h-6 text-white" />
@@ -129,11 +130,11 @@ export const PricingPlans: React.FC<PricingPlansProps> = ({ onSubscriptionUpdate
       </div>
 
       {/* Social Proof */}
-      <div className="bg-gradient-to-r from-green-400/20 to-purple-400/20 rounded-2xl p-8 border border-green-400/30">
+      <div className="bg-gradient-to-r from-green-400/20 to-purple-400/20 rounded-2xl p-4 sm:p-8 border border-green-400/30">
         <div className="text-center">
-          <h3 className="text-2xl font-bold text-white mb-6">O que nossos usuários dizem</h3>
+          <h3 className="text-xl sm:text-2xl font-bold text-white mb-6">O que nossos usuários dizem</h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-8">
             <div className="bg-white/10 rounded-xl p-6">
               <div className="flex items-center gap-1 mb-3 justify-center">
                 {[...Array(5)].map((_, i) => (
@@ -168,10 +169,10 @@ export const PricingPlans: React.FC<PricingPlansProps> = ({ onSubscriptionUpdate
       </div>
 
       {/* FAQ Section */}
-      <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
-        <h3 className="text-2xl font-bold text-white mb-6 text-center">Perguntas Frequentes</h3>
+      <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 sm:p-8 border border-white/20">
+        <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 text-center">Perguntas Frequentes</h3>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           <div className="bg-white/5 rounded-xl p-4">
             <h4 className="text-white font-semibold mb-2">Posso cancelar a qualquer momento?</h4>
             <p className="text-gray-300 text-sm">Sim! Você pode cancelar sua assinatura a qualquer momento sem taxas adicionais.</p>
@@ -195,31 +196,32 @@ export const PricingPlans: React.FC<PricingPlansProps> = ({ onSubscriptionUpdate
       </div>
 
       {/* Final CTA */}
-      <div className="text-center bg-gradient-to-r from-purple-400/20 to-blue-400/20 rounded-2xl p-8 border border-purple-400/30">
-        <h3 className="text-3xl font-bold text-white mb-4">Sua transformação começa hoje!</h3>
-        <p className="text-gray-300 mb-6 text-lg">Junte-se a milhares de pessoas que já alcançaram seus objetivos</p>
+      <div className="text-center bg-gradient-to-r from-purple-400/20 to-blue-400/20 rounded-2xl p-4 sm:p-8 border border-purple-400/30">
+        <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">Sua transformação começa hoje!</h3>
+        <p className="text-gray-300 mb-6 text-base sm:text-lg">Junte-se a milhares de pessoas que já alcançaram seus objetivos</p>
         
-        <div className="flex items-center justify-center gap-4 mb-6">
+        <div className="flex items-center justify-center gap-2 sm:gap-4 mb-6">
           <div className="text-center">
-            <div className="text-2xl font-bold text-green-400">10.000+</div>
+            <div className="text-xl sm:text-2xl font-bold text-green-400">10.000+</div>
             <div className="text-gray-300 text-sm">Usuários ativos</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-blue-400">4.9★</div>
+            <div className="text-xl sm:text-2xl font-bold text-blue-400">4.9★</div>
             <div className="text-gray-300 text-sm">Avaliação média</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-purple-400">95%</div>
+            <div className="text-xl sm:text-2xl font-bold text-purple-400">95%</div>
             <div className="text-gray-300 text-sm">Taxa de sucesso</div>
           </div>
         </div>
 
         <button
           onClick={handlePlanSelect}
-          className="bg-gradient-to-r from-purple-400 to-blue-400 text-white px-12 py-4 rounded-xl font-bold text-xl hover:from-purple-500 hover:to-blue-500 transition-all transform hover:scale-105 flex items-center gap-3 mx-auto shadow-2xl"
+          className="bg-gradient-to-r from-purple-400 to-blue-400 text-white px-6 sm:px-12 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-xl hover:from-purple-500 hover:to-blue-500 transition-all transform hover:scale-105 flex items-center gap-2 sm:gap-3 mx-auto shadow-2xl"
         >
           <Crown className="w-6 h-6" />
-          Ativar Moedas Ilimitadas - R$ 19,90/mês
+          <span className="hidden sm:inline">Ativar Moedas Ilimitadas - R$ 19,90/mês</span>
+          <span className="sm:hidden">Ativar Premium - R$ 19,90/mês</span>
           <ExternalLink className="w-5 h-5" />
         </button>
         

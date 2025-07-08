@@ -316,34 +316,34 @@ export const ProgressTracker: React.FC<ProgressTrackerProps> = ({ personalData }
   return (
     <div className="space-y-6">
       {/* Current Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 sm:p-6 border border-white/20 hover:bg-white/15 transition-all">
           <div className="flex items-center gap-3 mb-4">
             <div className="p-2 bg-blue-500 rounded-xl">
               <TrendingUp className="w-5 h-5 text-white" />
             </div>
-            <div>
-              <h3 className="text-lg font-semibold text-white">Peso Atual</h3>
+            <div className="min-w-0 flex-1">
+              <h3 className="text-base sm:text-lg font-semibold text-white">Peso Atual</h3>
               <p className="text-gray-300 text-sm">Última medição</p>
             </div>
           </div>
-          <div className="text-2xl font-bold text-white">{currentMeasurement?.weight.toFixed(1) || '--'} kg</div>
+          <div className="text-xl sm:text-2xl font-bold text-white">{currentMeasurement?.weight.toFixed(1) || '--'} kg</div>
           <div className={`text-sm ${progress.weight >= 0 ? 'text-green-400' : 'text-red-400'}`}>
             {progress.weight >= 0 ? '-' : '+'}{Math.abs(progress.weight).toFixed(1)}kg desde o início
           </div>
         </div>
 
-        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all">
+        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 sm:p-6 border border-white/20 hover:bg-white/15 transition-all">
           <div className="flex items-center gap-3 mb-4">
             <div className="p-2 bg-red-500 rounded-xl">
               <Flame className="w-5 h-5 text-white" />
             </div>
-            <div>
-              <h3 className="text-lg font-semibold text-white">Gordura Corporal</h3>
+            <div className="min-w-0 flex-1">
+              <h3 className="text-base sm:text-lg font-semibold text-white">Gordura Corporal</h3>
               <p className="text-gray-300 text-sm">Opcional</p>
             </div>
           </div>
-          <div className="text-2xl font-bold text-white">
+          <div className="text-xl sm:text-2xl font-bold text-white">
             {currentMeasurement?.bodyFat?.toFixed(1) || '--'}%
           </div>
           <div className="text-green-400 text-sm">
@@ -351,17 +351,17 @@ export const ProgressTracker: React.FC<ProgressTrackerProps> = ({ personalData }
           </div>
         </div>
 
-        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all">
+        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 sm:p-6 border border-white/20 hover:bg-white/15 transition-all">
           <div className="flex items-center gap-3 mb-4">
             <div className="p-2 bg-purple-500 rounded-xl">
               <Zap className="w-5 h-5 text-white" />
             </div>
-            <div>
-              <h3 className="text-lg font-semibold text-white">Massa Muscular</h3>
+            <div className="min-w-0 flex-1">
+              <h3 className="text-base sm:text-lg font-semibold text-white">Massa Muscular</h3>
               <p className="text-gray-300 text-sm">Opcional</p>
             </div>
           </div>
-          <div className="text-2xl font-bold text-white">
+          <div className="text-xl sm:text-2xl font-bold text-white">
             {currentMeasurement?.muscle?.toFixed(1) || '--'} kg
           </div>
           <div className="text-green-400 text-sm">
@@ -369,17 +369,17 @@ export const ProgressTracker: React.FC<ProgressTrackerProps> = ({ personalData }
           </div>
         </div>
 
-        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all">
+        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 sm:p-6 border border-white/20 hover:bg-white/15 transition-all">
           <div className="flex items-center gap-3 mb-4">
             <div className="p-2 bg-yellow-500 rounded-xl">
               <Target className="w-5 h-5 text-white" />
             </div>
-            <div>
-              <h3 className="text-lg font-semibold text-white">Medida Cintura</h3>
+            <div className="min-w-0 flex-1">
+              <h3 className="text-base sm:text-lg font-semibold text-white">Medida Cintura</h3>
               <p className="text-gray-300 text-sm">Opcional</p>
             </div>
           </div>
-          <div className="text-2xl font-bold text-white">
+          <div className="text-xl sm:text-2xl font-bold text-white">
             {currentMeasurement?.waist || '--'} cm
           </div>
           <div className="text-green-400 text-sm">
@@ -389,11 +389,11 @@ export const ProgressTracker: React.FC<ProgressTrackerProps> = ({ personalData }
       </div>
 
       {/* Interactive Chart */}
-      <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
+      <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 sm:p-6 border border-white/20">
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
             <BarChart3 className="w-6 h-6 text-green-400" />
-            <h3 className="text-lg font-semibold text-white">Evolução das Medições</h3>
+            <h3 className="text-base sm:text-lg font-semibold text-white">Evolução das Medições</h3>
           </div>
           <button
             onClick={() => {
@@ -405,15 +405,16 @@ export const ProgressTracker: React.FC<ProgressTrackerProps> = ({ personalData }
               setNewNotes('');
               setShowAddMeasurement(true);
             }}
-            className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-400 to-blue-400 rounded-xl text-white hover:from-green-500 hover:to-blue-500 transition-all transform hover:scale-105"
+            className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-gradient-to-r from-green-400 to-blue-400 rounded-xl text-white hover:from-green-500 hover:to-blue-500 transition-all transform hover:scale-105 text-sm sm:text-base"
           >
             <Plus className="w-4 h-4" />
-            Nova Medição
+            <span className="hidden sm:inline">Nova Medição</span>
+            <span className="sm:hidden">Nova</span>
           </button>
         </div>
 
         {/* Metric Selector */}
-        <div className="flex gap-2 mb-6 overflow-x-auto">
+        <div className="flex gap-1 sm:gap-2 mb-6 overflow-x-auto pb-2">
           {[
             { key: 'weight', label: 'Peso', icon: TrendingUp },
             { key: 'bodyFat', label: 'Gordura', icon: Flame },
@@ -423,7 +424,7 @@ export const ProgressTracker: React.FC<ProgressTrackerProps> = ({ personalData }
             <button
               key={key}
               onClick={() => setSelectedMetric(key as any)}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl transition-all whitespace-nowrap ${
+              className={`flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-2 rounded-xl transition-all whitespace-nowrap text-sm ${
                 selectedMetric === key
                   ? 'bg-gradient-to-r from-green-400 to-blue-400 text-white'
                   : 'bg-white/10 text-gray-300 hover:bg-white/20'
@@ -436,7 +437,7 @@ export const ProgressTracker: React.FC<ProgressTrackerProps> = ({ personalData }
         </div>
 
         {/* Measurements List */}
-        <div className="space-y-3 max-h-96 overflow-y-auto">
+        <div className="space-y-3 max-h-80 sm:max-h-96 overflow-y-auto">
           <h4 className="text-white font-medium mb-4 flex items-center gap-2">
             <Activity className="w-5 h-5" />
             {getMetricLabel()} ({getMetricUnit()})
@@ -452,7 +453,7 @@ export const ProgressTracker: React.FC<ProgressTrackerProps> = ({ personalData }
             getMetricData().map((data, index) => {
               const measurement = measurements[index];
               return (
-                <div key={measurement.id} className="flex items-center justify-between p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all group">
+                <div key={measurement.id} className="flex items-center justify-between p-3 sm:p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all group">
                   <div className="flex-1">
                     <div className="flex items-center gap-3">
                       <span className="text-white font-medium">
@@ -465,7 +466,7 @@ export const ProgressTracker: React.FC<ProgressTrackerProps> = ({ personalData }
                     )}
                   </div>
                   
-                  <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all">
+                  <div className="flex items-center gap-1 sm:gap-2 opacity-0 group-hover:opacity-100 transition-all">
                     <button
                       onClick={() => handleEditMeasurement(measurement.id)}
                       className="p-2 bg-blue-500/20 hover:bg-blue-500/40 rounded-lg transition-all"
@@ -487,13 +488,13 @@ export const ProgressTracker: React.FC<ProgressTrackerProps> = ({ personalData }
       </div>
 
       {/* Achievements */}
-      <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
+      <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 sm:p-6 border border-white/20">
         <div className="flex items-center gap-3 mb-6">
           <Trophy className="w-6 h-6 text-yellow-400" />
-          <h3 className="text-lg font-semibold text-white">Conquistas</h3>
+          <h3 className="text-base sm:text-lg font-semibold text-white">Conquistas</h3>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           {achievements.map((achievement) => (
             <AchievementCard key={achievement.id} achievement={achievement} />
           ))}
@@ -502,10 +503,10 @@ export const ProgressTracker: React.FC<ProgressTrackerProps> = ({ personalData }
 
       {/* Add/Edit Measurement Modal */}
       {showAddMeasurement && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-          <div className="bg-slate-900 rounded-2xl p-6 max-w-lg w-full border border-white/20 shadow-2xl max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 z-50">
+          <div className="bg-slate-900 rounded-2xl p-4 sm:p-6 max-w-lg w-full border border-white/20 shadow-2xl max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold text-white">
+              <h2 className="text-lg sm:text-xl font-bold text-white">
                 {editingEntry ? 'Editar Medição' : 'Nova Medição'}
               </h2>
               <button
@@ -531,13 +532,13 @@ export const ProgressTracker: React.FC<ProgressTrackerProps> = ({ personalData }
                   max="300"
                   value={newWeight}
                   onChange={(e) => setNewWeight(e.target.value)}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all text-base"
                   placeholder="Ex: 70.5"
                   autoFocus
                 />
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-2">
                     Gordura Corporal (%)
@@ -549,7 +550,7 @@ export const ProgressTracker: React.FC<ProgressTrackerProps> = ({ personalData }
                     max="50"
                     value={newBodyFat}
                     onChange={(e) => setNewBodyFat(e.target.value)}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all"
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all text-base"
                     placeholder="Ex: 15.5"
                   />
                 </div>
@@ -565,7 +566,7 @@ export const ProgressTracker: React.FC<ProgressTrackerProps> = ({ personalData }
                     max="150"
                     value={newMuscle}
                     onChange={(e) => setNewMuscle(e.target.value)}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all"
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all text-base"
                     placeholder="Ex: 70.2"
                   />
                 </div>
@@ -582,7 +583,7 @@ export const ProgressTracker: React.FC<ProgressTrackerProps> = ({ personalData }
                   max="150"
                   value={newWaist}
                   onChange={(e) => setNewWaist(e.target.value)}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all text-base"
                   placeholder="Ex: 85"
                 />
               </div>
@@ -594,7 +595,7 @@ export const ProgressTracker: React.FC<ProgressTrackerProps> = ({ personalData }
                 <textarea
                   value={newNotes}
                   onChange={(e) => setNewNotes(e.target.value)}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all resize-none"
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all resize-none text-base"
                   placeholder="Ex: Medição após treino, manhã em jejum..."
                   rows={3}
                 />
@@ -610,21 +611,21 @@ export const ProgressTracker: React.FC<ProgressTrackerProps> = ({ personalData }
                 </ul>
               </div>
               
-              <div className="flex gap-3 pt-2">
+              <div className="flex flex-col sm:flex-row gap-3 pt-2">
                 <button
                   onClick={() => {
                     setShowAddMeasurement(false);
                     setEditingEntry(null);
                   }}
                   disabled={isSubmitting}
-                  className="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white hover:bg-white/20 transition-all disabled:opacity-50"
+                  className="order-2 sm:order-1 flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white hover:bg-white/20 transition-all disabled:opacity-50 text-base"
                 >
                   Cancelar
                 </button>
                 <button
                   onClick={editingEntry ? handleUpdateMeasurement : handleAddMeasurement}
                   disabled={!newWeight || isSubmitting}
-                  className="flex-1 px-4 py-3 bg-gradient-to-r from-green-400 to-blue-400 rounded-xl text-white hover:from-green-500 hover:to-blue-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="order-1 sm:order-2 flex-1 px-4 py-3 bg-gradient-to-r from-green-400 to-blue-400 rounded-xl text-white hover:from-green-500 hover:to-blue-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-base"
                 >
                   {isSubmitting ? (
                     <>

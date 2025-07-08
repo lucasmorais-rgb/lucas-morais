@@ -113,7 +113,7 @@ export const HealthMetrics: React.FC<HealthMetricsProps> = ({ personalData }) =>
   return (
     <div className="space-y-6">
       {/* Overview Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         <MetricCard
           icon={Calculator}
           title="IMC"
@@ -141,17 +141,17 @@ export const HealthMetrics: React.FC<HealthMetricsProps> = ({ personalData }) =>
       </div>
 
       {/* Target and Progress */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 sm:p-6 border border-white/20">
           <div className="flex items-center gap-3 mb-4">
             <Target className="w-6 h-6 text-green-400" />
-            <h3 className="text-lg font-semibold text-white">Meta Calórica Diária</h3>
+            <h3 className="text-base sm:text-lg font-semibold text-white">Meta Calórica Diária</h3>
           </div>
           
           <div className="space-y-4">
             <div className="flex justify-between items-center">
               <span className="text-gray-300">Calorias Alvo:</span>
-              <span className="text-2xl font-bold text-green-400">{Math.round(metrics.targetCalories)} kcal</span>
+              <span className="text-xl sm:text-2xl font-bold text-green-400">{Math.round(metrics.targetCalories)} kcal</span>
             </div>
             
             <div className="bg-gray-700 h-4 rounded-full overflow-hidden">
@@ -165,26 +165,26 @@ export const HealthMetrics: React.FC<HealthMetricsProps> = ({ personalData }) =>
           </div>
         </div>
 
-        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
+        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 sm:p-6 border border-white/20">
           <div className="flex items-center gap-3 mb-4">
             <Scale className="w-6 h-6 text-yellow-400" />
-            <h3 className="text-lg font-semibold text-white">Peso Ideal</h3>
+            <h3 className="text-base sm:text-lg font-semibold text-white">Peso Ideal</h3>
           </div>
           
           <div className="space-y-4">
             <div className="flex justify-between items-center">
               <span className="text-gray-300">Peso Atual:</span>
-              <span className="text-xl font-bold text-white">{personalData.weight} kg</span>
+              <span className="text-lg sm:text-xl font-bold text-white">{personalData.weight} kg</span>
             </div>
             
             <div className="flex justify-between items-center">
               <span className="text-gray-300">Peso Ideal:</span>
-              <span className="text-xl font-bold text-yellow-400">{metrics.idealWeight.toFixed(1)} kg</span>
+              <span className="text-lg sm:text-xl font-bold text-yellow-400">{metrics.idealWeight.toFixed(1)} kg</span>
             </div>
             
             <div className="flex justify-between items-center">
               <span className="text-gray-300">Diferença:</span>
-              <span className={`text-xl font-bold ${personalData.weight > metrics.idealWeight ? 'text-red-400' : 'text-green-400'}`}>
+              <span className={`text-lg sm:text-xl font-bold ${personalData.weight > metrics.idealWeight ? 'text-red-400' : 'text-green-400'}`}>
                 {personalData.weight > metrics.idealWeight ? '+' : ''}{(personalData.weight - metrics.idealWeight).toFixed(1)} kg
               </span>
             </div>
@@ -193,13 +193,13 @@ export const HealthMetrics: React.FC<HealthMetricsProps> = ({ personalData }) =>
       </div>
 
       {/* Detailed Analysis */}
-      <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
+      <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 sm:p-6 border border-white/20">
         <div className="flex items-center gap-3 mb-4">
           <TrendingUp className="w-6 h-6 text-blue-400" />
-          <h3 className="text-lg font-semibold text-white">Análise Detalhada</h3>
+          <h3 className="text-base sm:text-lg font-semibold text-white">Análise Detalhada</h3>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           <div className="space-y-3">
             <h4 className="font-semibold text-white">Seus Dados</h4>
             <div className="space-y-2 text-sm">
@@ -225,19 +225,19 @@ export const HealthMetrics: React.FC<HealthMetricsProps> = ({ personalData }) =>
           <div className="space-y-3">
             <h4 className="font-semibold text-white">Recomendações</h4>
             <div className="space-y-2 text-sm">
-              <div className="flex items-center gap-2">
+              <div className="flex items-start gap-2">
                 <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                 <span className="text-gray-300">Beba pelo menos 2L de água por dia</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-start gap-2">
                 <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
                 <span className="text-gray-300">Faça pelo menos 150min de exercício por semana</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-start gap-2">
                 <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
                 <span className="text-gray-300">Durma 7-9 horas por noite</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-start gap-2">
                 <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
                 <span className="text-gray-300">Monitore seu progresso semanalmente</span>
               </div>
