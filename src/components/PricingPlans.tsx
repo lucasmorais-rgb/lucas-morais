@@ -9,7 +9,7 @@ interface PricingPlansProps {
 export const PricingPlans: React.FC<PricingPlansProps> = ({ onSubscriptionUpdate }) => {
   const handlePlanSelect = () => {
     // Redirecionar diretamente para a página de pagamento da Kiwify
-    window.open('https://pay.kiwify.com.br/b73TeZ4', '_blank');
+    window.open('https://pay.hotmart.com/R100717663O', '_blank');
   };
 
   return (
