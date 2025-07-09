@@ -19,32 +19,54 @@ interface Message {
 export const AIChat: React.FC<AIChatProps> = ({ personalData, userSubscription, onSubscriptionUpdate }) => {
   const { t } = useLanguage();
   
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: '1',
-      sender: 'ai',
-      content: `${t('aiGreeting')} ${personalData.name}! ${t('aiIntroduction')}`,
-      timestamp: new Date()
-    }
+  // Gerar mensagem inicial personalizada baseada nos dados do usuário
+  const getInitialMessage = (): Message => ({
+    id: '1',
+    sender: 'ai',
+    content: `${t('aiGreeting')} ${personalData.name}! ${t('aiIntroduction')}`,
+    timestamp: new Date()
+  });
+  
+  const [messages, setMessages] = useState<Message[]>(() => [
+    getInitialMessage()
   ]);
+  
+  // Atualizar mensagem inicial quando dados do usuário mudarem
+  useEffect(() => {
+    setMessages([getInitialMessage()]);
+  }, [personalData.name, t]);
+  
   const [inputMessage, setInputMessage] = useState('');
   const [isTyping, setIsTyping] = useState(false);
 
+  // Respostas personalizadas baseadas nos dados do usuário
+  const getPersonalizedResponses = (): { [key: string]: string } => {
+    const goalText = personalData.goal === 'lose_weight' ? 'perder peso' : 
+                    personalData.goal === 'gain_muscle' ? 'ganhar massa muscular' : 
+                    personalData.goal === 'lose_fat_maintain_muscle' ? 'definir o corpo' : 'manter o peso';
+    
+    return {
+      'tapioca': `A tapioca é uma excelente opção para seu objetivo de ${goalText}! É rica em carboidratos complexos e tem baixo índice glicêmico. ${personalData.goal === 'lose_weight' ? 'À noite, consuma com moderação (1 tapioca pequena) e combine com proteína magra.' : 'Pode consumir normalmente, especialmente no pré-treino.'}`,
+      
+      'shake': `Receita de shake personalizada para ${goalText}:\n\n🥤 Shake para ${personalData.name}:\n• 1 banana\n• ${personalData.goal === 'gain_muscle' ? '300ml' : '200ml'} de leite\n• 1 scoop de whey protein\n• ${personalData.goal === 'gain_muscle' ? '2 colheres' : '1 colher'} de aveia\n• ${personalData.goal === 'gain_muscle' ? '1 colher de pasta de amendoim' : '1/2 colher de pasta de amendoim'}\n• Gelo a gosto\n\nBata tudo no liquidificador. ${personalData.goal === 'gain_muscle' ? 'Rende ~500 kcal e 40g de proteína!' : 'Rende ~350 kcal e 30g de proteína!'}`,
+      
+      'água': `A hidratação é fundamental para ${goalText}! Recomendo:\n\n💧 Para você (${personalData.weight}kg): aproximadamente ${Math.round(personalData.weight * 35 / 1000 * 10) / 10}L por dia\n💧 Beba 1 copo ao acordar\n💧 1 copo antes de cada refeição\n💧 Aumente durante exercícios\n💧 ${personalData.goal === 'lose_weight' ? 'Água ajuda na saciedade e acelera o metabolismo' : 'Essencial para síntese proteica e recuperação'}`,
+      
+      'carboidrato': `Os carboidratos são essenciais para ${goalText}! Para seu objetivo:\n\n✅ Melhores fontes:\n• Aveia, quinoa, batata doce\n• Arroz integral, banana\n• Frutas em geral\n\n⏰ Timing ideal para você:\n• Manhã: carboidratos complexos\n• ${personalData.goal === 'lose_weight' ? 'Evite à noite' : 'Pré-treino: carboidratos simples'}\n• ${personalData.goal !== 'lose_weight' ? 'Pós-treino: carboidratos + proteína' : 'Prefira vegetais à noite'}`,
+      
+      'proteína': `Proteína para ${goalText}:\n\n🥩 Recomendação para você: ${personalData.goal === 'gain_muscle' ? '2,2g' : personalData.goal === 'lose_weight' ? '1,8g' : '2,0g'} por kg\n🥩 Para seus ${personalData.weight}kg: ~${Math.round(personalData.weight * (personalData.goal === 'gain_muscle' ? 2.2 : personalData.goal === 'lose_weight' ? 1.8 : 2.0))}g por dia\n\n✅ Melhores fontes:\n• Peito de frango, peixe, ovos\n• Whey protein, caseína\n• ${personalData.goal === 'lose_weight' ? 'Queijo cottage, iogurte grego' : 'Carne vermelha magra, feijões'}\n\n⏰ Distribua em ${personalData.goal === 'gain_muscle' ? '5-6' : '4-5'} refeições`
+    };
+  };
+
   const canSendMessage = userSubscription.isUnlimited || userSubscription.coins > 0;
 
-  const predefinedAnswers: { [key: string]: string } = {
-    'tapioca': 'A tapioca é uma excelente opção! É rica em carboidratos complexos e tem baixo índice glicêmico. À noite, se seu objetivo é perder gordura, consuma com moderação (1 tapioca pequena) e combine com proteína magra como queijo cottage ou peito de peru.',
-    'shake': 'Receita de shake caseiro para ganho de massa:\n\n🥤 Shake Proteico:\n• 1 banana\n• 200ml de leite\n• 1 scoop de whey protein\n• 1 colher de aveia\n• 1 colher de pasta de amendoim\n• Gelo a gosto\n\nBata tudo no liquidificador. Rende ~400 kcal e 35g de proteína!',
-    'água': 'A hidratação é fundamental! Recomendo:\n\n💧 Quantidade diária: 35ml por kg de peso corporal\n💧 Para você: aproximadamente 2,5-3L por dia\n💧 Beba 1 copo ao acordar\n💧 1 copo antes de cada refeição\n💧 Aumente a ingestão durante exercícios',
-    'carboidrato': 'Os carboidratos são essenciais! Para seu objetivo:\n\n✅ Melhores fontes:\n• Aveia, quinoa, batata doce\n• Arroz integral, banana\n• Frutas em geral\n\n⏰ Timing ideal:\n• Manhã: carboidratos complexos\n• Pré-treino: carboidratos simples\n• Pós-treino: carboidratos + proteína',
-    'proteína': 'Protein intake para seu objetivo:\n\n🥩 Recomendação: 1,6-2,2g por kg de peso\n🥩 Para você: ~150-200g por dia\n\n✅ Melhores fontes:\n• Peito de frango, peixe, ovos\n• Whey protein, caseína\n• Feijões, lentilha, quinoa\n\n⏰ Distribua ao longo do dia em 4-6 refeições'
-  };
 
   const generateAIResponse = (userMessage: string): string => {
     const message = userMessage.toLowerCase();
+    const personalizedAnswers = getPersonalizedResponses();
     
     // Check for keywords in predefined answers
-    for (const [keyword, answer] of Object.entries(predefinedAnswers)) {
+    for (const [keyword, answer] of Object.entries(personalizedAnswers)) {
       if (message.includes(keyword)) {
         return answer;
       }
@@ -52,19 +74,19 @@ export const AIChat: React.FC<AIChatProps> = ({ personalData, userSubscription, 
     
     // Default responses based on goal
     if (message.includes('perder peso') || message.includes('emagrecer')) {
-      return `Para perder peso de forma saudável, ${personalData.name}, recomendo:\n\n🔥 Déficit calórico moderado (300-500 kcal)\n🔥 Priorize proteínas magras\n🔥 Inclua fibras em todas as refeições\n🔥 Mantenha-se hidratado\n🔥 Pratique exercícios regularmente\n\nLembre-se: a consistência é mais importante que a perfeição!`;
+      return `Para perder peso de forma saudável, ${personalData.name}, baseado no seu perfil (${personalData.age} anos, ${personalData.weight}kg):\n\n🔥 Déficit calórico moderado (300-500 kcal)\n🔥 Meta: ${Math.round(personalData.weight * 1.8)}g de proteína/dia\n🔥 Inclua fibras em todas as refeições\n🔥 Beba ${Math.round(personalData.weight * 35 / 1000 * 10) / 10}L de água/dia\n🔥 ${personalData.activityLevel === 'sedentary' ? 'Comece com caminhadas de 30min' : 'Mantenha sua rotina de exercícios'}\n\nLembre-se: a consistência é mais importante que a perfeição!`;
     }
     
     if (message.includes('ganhar massa') || message.includes('músculo')) {
-      return `Para ganhar massa muscular, ${personalData.name}:\n\n💪 Superávit calórico controlado (+300 kcal)\n💪 Proteína: 2g por kg de peso\n💪 Carboidratos no pré e pós-treino\n💪 Treine com pesos regularmente\n💪 Durma 7-9 horas por noite\n\nPaciência e consistência são fundamentais!`;
+      return `Para ganhar massa muscular, ${personalData.name} (${personalData.weight}kg):\n\n💪 Superávit calórico controlado (+300-500 kcal)\n💪 Meta: ${Math.round(personalData.weight * 2.2)}g de proteína/dia\n💪 Carboidratos: ${Math.round(personalData.weight * 4)}g/dia\n💪 ${personalData.activityLevel === 'sedentary' ? 'Inicie treino de força 3x/semana' : 'Mantenha treino intenso'}\n💪 Durma 7-9 horas por noite\n\nPaciência e consistência são fundamentais!`;
     }
     
     if (message.includes('quando comer') || message.includes('horário')) {
-      return `Timing nutricional otimizado:\n\n🌅 Café da manhã: 30min após acordar\n🌞 Almoço: 4-5h após café da manhã\n🌆 Lanche: 3-4h após almoço\n🌙 Jantar: 3-4h antes de dormir\n\n💡 Dica: Mantenha intervalos regulares entre as refeições para estabilizar o metabolismo!`;
+      return `Timing nutricional otimizado para ${personalData.name}:\n\n🌅 Café da manhã: 30min após acordar\n🌞 Almoço: 4-5h após café da manhã\n🌆 Lanche: 3-4h após almoço\n🌙 Jantar: 3-4h antes de dormir\n\n💡 Para seu objetivo de ${personalData.goal === 'lose_weight' ? 'perder peso' : personalData.goal === 'gain_muscle' ? 'ganhar massa' : 'definir o corpo'}: ${personalData.goal === 'lose_weight' ? 'Evite comer 3h antes de dormir' : 'Inclua um lanche proteico antes de dormir'}`;
     }
     
     // Generic helpful response
-    return `Ótima pergunta, ${personalData.name}! Com base no seu objetivo de ${personalData.goal === 'lose_weight' ? 'perder peso' : personalData.goal === 'gain_muscle' ? 'ganhar massa muscular' : 'manter o peso'}, posso te dar orientações mais específicas.\n\nPoderia me dar mais detalhes sobre sua dúvida? Por exemplo:\n• Sobre que alimento específico?\n• Em que horário do dia?\n• Contexto da sua rotina?\n\nAssim posso te ajudar melhor! 😊`;
+    return `Ótima pergunta, ${personalData.name}! Com base no seu perfil (${personalData.age} anos, ${personalData.weight}kg, objetivo: ${personalData.goal === 'lose_weight' ? 'perder peso' : personalData.goal === 'gain_muscle' ? 'ganhar massa muscular' : personalData.goal === 'lose_fat_maintain_muscle' ? 'definir o corpo' : 'manter o peso'}), posso te dar orientações mais específicas.\n\nPoderia me dar mais detalhes sobre sua dúvida? Por exemplo:\n• Sobre que alimento específico?\n• Em que horário do dia?\n• Contexto da sua rotina?\n\nAssim posso te ajudar melhor! 😊`;
   };
 
   const handleSendMessage = () => {

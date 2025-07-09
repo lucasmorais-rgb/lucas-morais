@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { PersonalData } from '../types/PersonalData';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useLocalStorage } from '../hooks/useLocalStorage';
 import { TrendingUp, Calendar, Award, Target, Plus, Trophy, Flame, Zap, X, Edit3, Trash2, Save, BarChart3, Activity } from 'lucide-react';
 
 interface ProgressTrackerProps {
@@ -41,8 +42,8 @@ export const ProgressTracker: React.FC<ProgressTrackerProps> = ({ personalData }
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedMetric, setSelectedMetric] = useState<'weight' | 'bodyFat' | 'muscle' | 'waist'>('weight');
 
-  // Estado para armazenar medições (em uma aplicação real, isso viria de um banco de dados)
-  const [measurements, setMeasurements] = useState<MeasurementEntry[]>([
+  // Usar localStorage para persistir medições
+  const [measurements, setMeasurements] = useLocalStorage<MeasurementEntry[]>('measurements', [
     {
       id: '1',
       weight: personalData.weight,
@@ -54,7 +55,7 @@ export const ProgressTracker: React.FC<ProgressTrackerProps> = ({ personalData }
     }
   ]);
 
-  const [achievements, setAchievements] = useState<Achievement[]>([
+  const [achievements, setAchievements] = useLocalStorage<Achievement[]>('achievements', [
     {
       id: 'first-measurement',
       title: 'Primeira Medição',

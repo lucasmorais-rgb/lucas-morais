@@ -1,25 +1,13 @@
 import React, { useState } from 'react';
 import { PersonalData, UserSubscription } from '../types/PersonalData';
 import { useLanguage } from '../contexts/LanguageContext';
+import { generateConsistentMealPlan, getForbiddenFoods, Meal } from '../utils/mealGenerator';
 import { Utensils, Clock, Users, ChefHat, AlertTriangle, Sparkles, Coins, Lock } from 'lucide-react';
 
 interface MealPlanProps {
   personalData: PersonalData;
   userSubscription: UserSubscription;
   onSubscriptionUpdate: (subscription: UserSubscription) => void;
-}
-
-interface Meal {
-  id: string;
-  name: string;
-  time: string;
-  calories: number;
-  protein: number;
-  carbs: number;
-  fat: number;
-  ingredients: string[];
-  preparation: string;
-  tips: string[];
 }
 
 export const MealPlan: React.FC<MealPlanProps> = ({ personalData, userSubscription, onSubscriptionUpdate }) => {
@@ -43,102 +31,14 @@ export const MealPlan: React.FC<MealPlanProps> = ({ personalData, userSubscripti
     setSelectedMeal(meal);
   };
 
-  const generateMealPlan = (): Meal[] => {
-    const { goal } = personalData;
-    
-    // Base meals that adapt to goals
-    const baseMeals: Meal[] = [
-      {
-        id: 'breakfast',
-        name: 'Café da Manhã Proteico',
-        time: '07:00',
-        calories: goal === 'lose_weight' ? 350 : goal === 'gain_muscle' ? 450 : 400,
-        protein: 25,
-        carbs: 35,
-        fat: 15,
-        ingredients: [
-          '2 ovos inteiros',
-          '1 fatia de pão integral',
-          '1 banana média',
-          '1 copo de leite desnatado',
-          'Canela a gosto'
-        ],
-        preparation: 'Prepare ovos mexidos com pouco óleo. Corte a banana em fatias e polvilhe canela. Aqueça o leite e sirva com o pão integral.',
-        tips: ['Evite açúcar refinado', 'Beba água antes da refeição', 'Mastigue bem os alimentos']
-      },
-      {
-        id: 'lunch',
-        name: 'Almoço Balanceado',
-        time: '12:00',
-        calories: goal === 'lose_weight' ? 500 : goal === 'gain_muscle' ? 650 : 575,
-        protein: 40,
-        carbs: 60,
-        fat: 20,
-        ingredients: [
-          '150g de peito de frango grelhado',
-          '1 xícara de arroz integral',
-          '1 xícara de brócolis',
-          '1 colher de azeite extra virgem',
-          'Salada verde à vontade'
-        ],
-        preparation: 'Grelhe o frango temperado com ervas. Cozinhe o arroz integral. Refogue o brócolis no vapor. Monte o prato com salada.',
-        tips: ['Tempere com ervas naturais', 'Evite frituras', 'Coma devagar e mastigue bem']
-      },
-      {
-        id: 'snack',
-        name: 'Lanche da Tarde',
-        time: '15:30',
-        calories: goal === 'lose_weight' ? 200 : goal === 'gain_muscle' ? 300 : 250,
-        protein: 15,
-        carbs: 25,
-        fat: 10,
-        ingredients: [
-          '1 iogurte grego natural',
-          '1 punhado de amêndoas',
-          '1 maçã pequena',
-          '1 colher de mel (opcional)'
-        ],
-        preparation: 'Corte a maçã em pedaços. Misture com o iogurte e adicione as amêndoas. Adoce com mel se necessário.',
-        tips: ['Opte por frutas da estação', 'Evite industrializados', 'Hidrate-se bem']
-      },
-      {
-        id: 'dinner',
-        name: 'Jantar Leve',
-        time: '19:00',
-        calories: goal === 'lose_weight' ? 400 : goal === 'gain_muscle' ? 550 : 475,
-        protein: 35,
-        carbs: 30,
-        fat: 18,
-        ingredients: [
-          '150g de salmão grelhado',
-          '1 xícara de quinoa',
-          'Legumes refogados',
-          '1 colher de azeite',
-          'Ervas finas'
-        ],
-        preparation: 'Grelhe o salmão com ervas. Cozinhe a quinoa. Refogue os legumes levemente. Tempere com azeite e ervas.',
-        tips: ['Jante 3h antes de dormir', 'Evite carboidratos pesados', 'Prefira proteínas magras']
-      }
-    ];
 
-    return baseMeals;
-  };
 
-  const meals = generateMealPlan();
+  // Gerar plano de refeições consistente baseado nos dados do usuário
+  const meals = generateConsistentMealPlan(personalData);
   const totalCalories = meals.reduce((sum, meal) => sum + meal.calories, 0);
 
-  const getForbiddenFoods = () => {
-    switch (personalData.goal) {
-      case 'lose_weight':
-        return ['Doces em geral', 'Refrigerantes', 'Frituras', 'Alimentos processados', 'Bebidas alcoólicas'];
-      case 'gain_muscle':
-        return ['Junk food', 'Refrigerantes', 'Doces industrializados', 'Alimentos muito processados'];
-      case 'lose_fat_maintain_muscle':
-        return ['Açúcar refinado', 'Carboidratos simples', 'Frituras', 'Processados com muito sódio'];
-      default:
-        return ['Excesso de açúcar', 'Alimentos muito processados', 'Frituras em excesso'];
-    }
-  };
+  // Obter alimentos proibidos baseado no objetivo
+  const forbiddenFoods = getForbiddenFoods(personalData.goal);
 
   const MealCard: React.FC<{ meal: Meal }> = ({ meal }) => (
     <div 
@@ -249,7 +149,7 @@ export const MealPlan: React.FC<MealPlanProps> = ({ personalData, userSubscripti
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          {getForbiddenFoods().map((food, index) => (
+          {forbiddenFoods.map((food, index) => (
             <div key={index} className="bg-red-500/20 border border-red-500/30 rounded-xl p-3">
               <span className="text-red-300 text-sm">{food}</span>
             </div>
