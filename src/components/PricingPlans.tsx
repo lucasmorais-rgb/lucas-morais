@@ -44,7 +44,7 @@ export const PricingPlans: React.FC<PricingPlansProps> = ({ onSubscriptionUpdate
             <p className="text-gray-300 mb-6 text-sm sm:text-base">Transformação completa com IA personalizada</p>
             
             <div className="flex items-baseline justify-center gap-2 mb-2">
-              <span className="text-3xl sm:text-5xl font-bold text-white">R$ 19,90</span>
+              <span className="text-3xl sm:text-5xl font-bold text-white">€15</span>
               <span className="text-gray-400 text-base sm:text-lg">/mês</span>
             </div>
             <p className="text-green-400 text-sm font-medium">💰 Preço promocional por tempo limitado!</p>
@@ -220,8 +220,8 @@ export const PricingPlans: React.FC<PricingPlansProps> = ({ onSubscriptionUpdate
           className="bg-gradient-to-r from-purple-400 to-blue-400 text-white px-6 sm:px-12 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-xl hover:from-purple-500 hover:to-blue-500 transition-all transform hover:scale-105 flex items-center gap-2 sm:gap-3 mx-auto shadow-2xl"
         >
           <Crown className="w-6 h-6" />
-          <span className="hidden sm:inline">Ativar Moedas Ilimitadas - R$ 19,90/mês</span>
-          <span className="sm:hidden">Ativar Premium - R$ 19,90/mês</span>
+          <span className="hidden sm:inline">Ativar Moedas Ilimitadas - €15/mês</span>
+          <span className="sm:hidden">Ativar Premium - €15/mês</span>
           <ExternalLink className="w-5 h-5" />
         </button>
         
