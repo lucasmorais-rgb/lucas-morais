@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { PersonalData, UserSubscription } from '../types/PersonalData';
+import { useLanguage } from '../contexts/LanguageContext';
 import { HealthMetrics } from './HealthMetrics';
 import { MealPlan } from './MealPlan';
 import { AIChat } from './AIChat';
@@ -21,13 +22,14 @@ export const Dashboard: React.FC<DashboardProps> = ({
   onSubscriptionUpdate 
 }) => {
   const [activeTab, setActiveTab] = useState<'metrics' | 'meals' | 'chat' | 'progress' | 'plans'>('metrics');
+  const { t } = useLanguage();
 
   const tabs = [
-    { id: 'metrics', label: 'Métricas', icon: Activity },
-    { id: 'meals', label: 'Refeições', icon: Utensils },
-    { id: 'chat', label: 'IA Nutricional', icon: MessageSquare },
-    { id: 'progress', label: 'Progresso', icon: TrendingUp },
-    { id: 'plans', label: 'Planos', icon: Crown }
+    { id: 'metrics', label: t('metrics'), icon: Activity },
+    { id: 'meals', label: t('meals'), icon: Utensils },
+    { id: 'chat', label: t('aiNutritional'), icon: MessageSquare },
+    { id: 'progress', label: t('progress'), icon: TrendingUp },
+    { id: 'plans', label: t('plans'), icon: Crown }
   ];
 
   return (
@@ -45,19 +47,19 @@ export const Dashboard: React.FC<DashboardProps> = ({
               </button>
               <div className="flex items-center gap-2 min-w-0">
                 <Heart className="text-green-400 w-6 h-6" />
-                <h1 className="text-lg sm:text-xl font-bold text-white truncate">Seu Corpo Ideal</h1>
+                <h1 className="text-lg sm:text-xl font-bold text-white truncate">{t('appName')}</h1>
               </div>
             </div>
             <div className="text-right min-w-0 hidden sm:block">
-              <p className="text-white font-semibold truncate">Olá, {personalData.name}!</p>
-              <p className="text-gray-300 text-sm">Vamos transformar sua vida hoje</p>
+              <p className="text-white font-semibold truncate">{t('hello')}, {personalData.name}!</p>
+              <p className="text-gray-300 text-sm">{t('transformYourLife')}</p>
             </div>
           </div>
           
           {/* Mobile User Greeting */}
           <div className="sm:hidden mt-4 text-center">
-            <p className="text-white font-semibold">Olá, {personalData.name}!</p>
-            <p className="text-gray-300 text-sm">Vamos transformar sua vida hoje</p>
+            <p className="text-white font-semibold">{t('hello')}, {personalData.name}!</p>
+            <p className="text-gray-300 text-sm">{t('transformYourLife')}</p>
           </div>
           
           {/* Coins Display */}
@@ -68,10 +70,10 @@ export const Dashboard: React.FC<DashboardProps> = ({
               </div>
               <div className="min-w-0 flex-1">
                 <p className="text-white font-medium">
-                  {userSubscription.isUnlimited ? 'Moedas Ilimitadas' : `${userSubscription.coins} Moedas`}
+                  {userSubscription.isUnlimited ? t('unlimitedCoins') : `${userSubscription.coins} ${t('coins')}`}
                 </p>
                 <p className="text-gray-300 text-sm truncate">
-                  {userSubscription.isPremium ? 'Plano Premium Ativo' : 'Teste Grátis'}
+                  {userSubscription.isPremium ? t('premiumPlanActive') : t('freeTrial')}
                 </p>
               </div>
             </div>
@@ -81,8 +83,8 @@ export const Dashboard: React.FC<DashboardProps> = ({
                 onClick={() => setActiveTab('plans')}
                 className="px-3 sm:px-4 py-2 bg-gradient-to-r from-purple-400 to-blue-400 rounded-xl text-white text-xs sm:text-sm hover:from-purple-500 hover:to-blue-500 transition-all whitespace-nowrap"
               >
-                <span className="hidden sm:inline">Upgrade Premium</span>
-                <span className="sm:hidden">Premium</span>
+                <span className="hidden sm:inline">{t('upgradePremium')}</span>
+                <span className="sm:hidden">{t('premium')}</span>
               </button>
             )}
           </div>

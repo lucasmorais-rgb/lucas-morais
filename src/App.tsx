@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { LanguageProvider } from './contexts/LanguageContext';
 import { WelcomeScreen } from './components/WelcomeScreen';
 import { Dashboard } from './components/Dashboard';
 import { PersonalData, UserSubscription } from './types/PersonalData';
@@ -27,18 +28,20 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
-      {currentScreen === 'welcome' ? (
-        <WelcomeScreen onDataSubmit={handleDataSubmit} />
-      ) : (
-        <Dashboard 
-          personalData={personalData!} 
-          userSubscription={userSubscription}
-          onBack={handleBackToWelcome}
-          onSubscriptionUpdate={handleSubscriptionUpdate}
-        />
-      )}
-    </div>
+    <LanguageProvider>
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+        {currentScreen === 'welcome' ? (
+          <WelcomeScreen onDataSubmit={handleDataSubmit} />
+        ) : (
+          <Dashboard 
+            personalData={personalData!} 
+            userSubscription={userSubscription}
+            onBack={handleBackToWelcome}
+            onSubscriptionUpdate={handleSubscriptionUpdate}
+          />
+        )}
+      </div>
+    </LanguageProvider>
   );
 }
 
