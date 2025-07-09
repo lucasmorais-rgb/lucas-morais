@@ -84,7 +84,48 @@ const translations = {
     meals: 'Refeições',
     aiNutritional: 'IA Nutricional',
     progress: 'Progresso',
-    plans: 'Planos'
+    plans: 'Planos',
+    
+    // AI Chat
+    aiGreeting: 'Olá',
+    aiIntroduction: 'Sou sua IA Nutricional personalizada. Posso ajudar com dúvidas sobre alimentação, receitas saudáveis, substituições de ingredientes e muito mais. Como posso te ajudar hoje?',
+    
+    // Health Metrics
+    bmi: 'IMC',
+    bmr: 'Taxa Metabólica Basal',
+    dailyCalories: 'Gasto Diário',
+    targetCalories: 'Meta Calórica Diária',
+    idealWeight: 'Peso Ideal',
+    currentWeight: 'Peso Atual',
+    bodyFat: 'Gordura Corporal',
+    muscleMass: 'Massa Muscular',
+    waistMeasure: 'Medida Cintura',
+    
+    // Meal Plan
+    personalizedMealPlan: 'Plano Alimentar Personalizado',
+    totalCalories: 'Calorias Totais',
+    meals: 'Refeições',
+    proteins: 'Proteínas',
+    forbiddenFoods: 'Alimentos a Evitar',
+    
+    // Progress Tracker
+    progressEvolution: 'Evolução das Medições',
+    newMeasurement: 'Nova Medição',
+    achievements: 'Conquistas',
+    
+    // Pricing
+    premiumPlan: 'Plano Premium',
+    specialOffer: 'Oferta Especial',
+    month: 'mês',
+    activatePremium: 'Ativar Premium',
+    
+    // Dashboard warnings
+    coinsRunningOut: 'Suas moedas estão acabando!',
+    remaining: 'restantes',
+    upgradeForUnlimited: 'Faça upgrade para o Premium e tenha acesso ilimitado por apenas €15/mês',
+    coinsFinished: 'Suas moedas acabaram!',
+    upgradeToUseFunctionalities: 'Para continuar usando todas as funcionalidades, faça upgrade para o Plano Premium',
+    viewPremiumPlans: 'Ver Planos Premium'
   },
   
   en: {
@@ -160,7 +201,48 @@ const translations = {
     meals: 'Meals',
     aiNutritional: 'AI Nutritional',
     progress: 'Progress',
-    plans: 'Plans'
+    plans: 'Plans',
+    
+    // AI Chat
+    aiGreeting: 'Hello',
+    aiIntroduction: 'I am your personalized Nutritional AI. I can help with questions about nutrition, healthy recipes, ingredient substitutions and much more. How can I help you today?',
+    
+    // Health Metrics
+    bmi: 'BMI',
+    bmr: 'Basal Metabolic Rate',
+    dailyCalories: 'Daily Expenditure',
+    targetCalories: 'Daily Caloric Target',
+    idealWeight: 'Ideal Weight',
+    currentWeight: 'Current Weight',
+    bodyFat: 'Body Fat',
+    muscleMass: 'Muscle Mass',
+    waistMeasure: 'Waist Measure',
+    
+    // Meal Plan
+    personalizedMealPlan: 'Personalized Meal Plan',
+    totalCalories: 'Total Calories',
+    meals: 'Meals',
+    proteins: 'Proteins',
+    forbiddenFoods: 'Foods to Avoid',
+    
+    // Progress Tracker
+    progressEvolution: 'Measurement Evolution',
+    newMeasurement: 'New Measurement',
+    achievements: 'Achievements',
+    
+    // Pricing
+    premiumPlan: 'Premium Plan',
+    specialOffer: 'Special Offer',
+    month: 'month',
+    activatePremium: 'Activate Premium',
+    
+    // Dashboard warnings
+    coinsRunningOut: 'Your coins are running out!',
+    remaining: 'remaining',
+    upgradeForUnlimited: 'Upgrade to Premium and get unlimited access for just €15/month',
+    coinsFinished: 'Your coins are finished!',
+    upgradeToUseFunctionalities: 'To continue using all functionalities, upgrade to Premium Plan',
+    viewPremiumPlans: 'View Premium Plans'
   },
   
   es: {
@@ -236,7 +318,48 @@ const translations = {
     meals: 'Comidas',
     aiNutritional: 'IA Nutricional',
     progress: 'Progreso',
-    plans: 'Planes'
+    plans: 'Planes',
+    
+    // AI Chat
+    aiGreeting: 'Hola',
+    aiIntroduction: 'Soy tu IA Nutricional personalizada. Puedo ayudar con preguntas sobre alimentación, recetas saludables, sustituciones de ingredientes y mucho más. ¿Cómo puedo ayudarte hoy?',
+    
+    // Health Metrics
+    bmi: 'IMC',
+    bmr: 'Tasa Metabólica Basal',
+    dailyCalories: 'Gasto Diario',
+    targetCalories: 'Meta Calórica Diaria',
+    idealWeight: 'Peso Ideal',
+    currentWeight: 'Peso Actual',
+    bodyFat: 'Grasa Corporal',
+    muscleMass: 'Masa Muscular',
+    waistMeasure: 'Medida Cintura',
+    
+    // Meal Plan
+    personalizedMealPlan: 'Plan de Comidas Personalizado',
+    totalCalories: 'Calorías Totales',
+    meals: 'Comidas',
+    proteins: 'Proteínas',
+    forbiddenFoods: 'Alimentos a Evitar',
+    
+    // Progress Tracker
+    progressEvolution: 'Evolución de Mediciones',
+    newMeasurement: 'Nueva Medición',
+    achievements: 'Logros',
+    
+    // Pricing
+    premiumPlan: 'Plan Premium',
+    specialOffer: 'Oferta Especial',
+    month: 'mes',
+    activatePremium: 'Activar Premium',
+    
+    // Dashboard warnings
+    coinsRunningOut: '¡Tus monedas se están agotando!',
+    remaining: 'restantes',
+    upgradeForUnlimited: 'Actualiza a Premium y obtén acceso ilimitado por solo €15/mes',
+    coinsFinished: '¡Tus monedas se han agotado!',
+    upgradeToUseFunctionalities: 'Para continuar usando todas las funcionalidades, actualiza al Plan Premium',
+    viewPremiumPlans: 'Ver Planes Premium'
   },
   
   fr: {
@@ -312,7 +435,48 @@ const translations = {
     meals: 'Repas',
     aiNutritional: 'IA Nutritionnelle',
     progress: 'Progrès',
-    plans: 'Plans'
+    plans: 'Plans',
+    
+    // AI Chat
+    aiGreeting: 'Bonjour',
+    aiIntroduction: 'Je suis votre IA Nutritionnelle personnalisée. Je peux vous aider avec des questions sur l\'alimentation, des recettes saines, des substitutions d\'ingrédients et bien plus encore. Comment puis-je vous aider aujourd\'hui ?',
+    
+    // Health Metrics
+    bmi: 'IMC',
+    bmr: 'Taux Métabolique de Base',
+    dailyCalories: 'Dépense Quotidienne',
+    targetCalories: 'Objectif Calorique Quotidien',
+    idealWeight: 'Poids Idéal',
+    currentWeight: 'Poids Actuel',
+    bodyFat: 'Graisse Corporelle',
+    muscleMass: 'Masse Musculaire',
+    waistMeasure: 'Tour de Taille',
+    
+    // Meal Plan
+    personalizedMealPlan: 'Plan de Repas Personnalisé',
+    totalCalories: 'Calories Totales',
+    meals: 'Repas',
+    proteins: 'Protéines',
+    forbiddenFoods: 'Aliments à Éviter',
+    
+    // Progress Tracker
+    progressEvolution: 'Évolution des Mesures',
+    newMeasurement: 'Nouvelle Mesure',
+    achievements: 'Réalisations',
+    
+    // Pricing
+    premiumPlan: 'Plan Premium',
+    specialOffer: 'Offre Spéciale',
+    month: 'mois',
+    activatePremium: 'Activer Premium',
+    
+    // Dashboard warnings
+    coinsRunningOut: 'Vos pièces s\'épuisent !',
+    remaining: 'restantes',
+    upgradeForUnlimited: 'Passez au Premium et obtenez un accès illimité pour seulement 15€/mois',
+    coinsFinished: 'Vos pièces sont épuisées !',
+    upgradeToUseFunctionalities: 'Pour continuer à utiliser toutes les fonctionnalités, passez au Plan Premium',
+    viewPremiumPlans: 'Voir les Plans Premium'
   },
   
   de: {
@@ -388,7 +552,48 @@ const translations = {
     meals: 'Mahlzeiten',
     aiNutritional: 'KI Ernährung',
     progress: 'Fortschritt',
-    plans: 'Pläne'
+    plans: 'Pläne',
+    
+    // AI Chat
+    aiGreeting: 'Hallo',
+    aiIntroduction: 'Ich bin Ihre personalisierte Ernährungs-KI. Ich kann bei Fragen zur Ernährung, gesunden Rezepten, Zutatenaustausch und vielem mehr helfen. Wie kann ich Ihnen heute helfen?',
+    
+    // Health Metrics
+    bmi: 'BMI',
+    bmr: 'Grundumsatz',
+    dailyCalories: 'Täglicher Verbrauch',
+    targetCalories: 'Tägliches Kalorienziel',
+    idealWeight: 'Idealgewicht',
+    currentWeight: 'Aktuelles Gewicht',
+    bodyFat: 'Körperfett',
+    muscleMass: 'Muskelmasse',
+    waistMeasure: 'Taillenumfang',
+    
+    // Meal Plan
+    personalizedMealPlan: 'Personalisierter Ernährungsplan',
+    totalCalories: 'Gesamtkalorien',
+    meals: 'Mahlzeiten',
+    proteins: 'Proteine',
+    forbiddenFoods: 'Zu vermeidende Lebensmittel',
+    
+    // Progress Tracker
+    progressEvolution: 'Messungsentwicklung',
+    newMeasurement: 'Neue Messung',
+    achievements: 'Erfolge',
+    
+    // Pricing
+    premiumPlan: 'Premium-Plan',
+    specialOffer: 'Sonderangebot',
+    month: 'Monat',
+    activatePremium: 'Premium Aktivieren',
+    
+    // Dashboard warnings
+    coinsRunningOut: 'Ihre Münzen gehen zur Neige!',
+    remaining: 'verbleibend',
+    upgradeForUnlimited: 'Upgraden Sie auf Premium und erhalten Sie unbegrenzten Zugang für nur 15€/Monat',
+    coinsFinished: 'Ihre Münzen sind aufgebraucht!',
+    upgradeToUseFunctionalities: 'Um alle Funktionen weiter nutzen zu können, upgraden Sie auf den Premium-Plan',
+    viewPremiumPlans: 'Premium-Pläne Anzeigen'
   },
   
   it: {
@@ -464,7 +669,48 @@ const translations = {
     meals: 'Pasti',
     aiNutritional: 'IA Nutrizionale',
     progress: 'Progresso',
-    plans: 'Piani'
+    plans: 'Piani',
+    
+    // AI Chat
+    aiGreeting: 'Ciao',
+    aiIntroduction: 'Sono la tua IA Nutrizionale personalizzata. Posso aiutare con domande sull\'alimentazione, ricette salutari, sostituzioni di ingredienti e molto altro. Come posso aiutarti oggi?',
+    
+    // Health Metrics
+    bmi: 'IMC',
+    bmr: 'Tasso Metabolico Basale',
+    dailyCalories: 'Spesa Giornaliera',
+    targetCalories: 'Obiettivo Calorico Giornaliero',
+    idealWeight: 'Peso Ideale',
+    currentWeight: 'Peso Attuale',
+    bodyFat: 'Grasso Corporeo',
+    muscleMass: 'Massa Muscolare',
+    waistMeasure: 'Misura Vita',
+    
+    // Meal Plan
+    personalizedMealPlan: 'Piano Pasti Personalizzato',
+    totalCalories: 'Calorie Totali',
+    meals: 'Pasti',
+    proteins: 'Proteine',
+    forbiddenFoods: 'Cibi da Evitare',
+    
+    // Progress Tracker
+    progressEvolution: 'Evoluzione Misurazioni',
+    newMeasurement: 'Nuova Misurazione',
+    achievements: 'Risultati',
+    
+    // Pricing
+    premiumPlan: 'Piano Premium',
+    specialOffer: 'Offerta Speciale',
+    month: 'mese',
+    activatePremium: 'Attiva Premium',
+    
+    // Dashboard warnings
+    coinsRunningOut: 'Le tue monete stanno finendo!',
+    remaining: 'rimanenti',
+    upgradeForUnlimited: 'Passa al Premium e ottieni accesso illimitato per soli €15/mese',
+    coinsFinished: 'Le tue monete sono finite!',
+    upgradeToUseFunctionalities: 'Per continuare a utilizzare tutte le funzionalità, passa al Piano Premium',
+    viewPremiumPlans: 'Visualizza Piani Premium'
   },
   
   ja: {
@@ -540,7 +786,48 @@ const translations = {
     meals: '食事',
     aiNutritional: 'AI栄養',
     progress: '進捗',
-    plans: 'プラン'
+    plans: 'プラン',
+    
+    // AI Chat
+    aiGreeting: 'こんにちは',
+    aiIntroduction: 'パーソナライズされた栄養AIです。食事、健康的なレシピ、食材の代替などに関する質問にお答えできます。今日はどのようにお手伝いできますか？',
+    
+    // Health Metrics
+    bmi: 'BMI',
+    bmr: '基礎代謝率',
+    dailyCalories: '1日の消費',
+    targetCalories: '1日のカロリー目標',
+    idealWeight: '理想体重',
+    currentWeight: '現在の体重',
+    bodyFat: '体脂肪',
+    muscleMass: '筋肉量',
+    waistMeasure: 'ウエスト',
+    
+    // Meal Plan
+    personalizedMealPlan: 'パーソナライズされた食事プラン',
+    totalCalories: '総カロリー',
+    meals: '食事',
+    proteins: 'タンパク質',
+    forbiddenFoods: '避けるべき食品',
+    
+    // Progress Tracker
+    progressEvolution: '測定の推移',
+    newMeasurement: '新しい測定',
+    achievements: '達成',
+    
+    // Pricing
+    premiumPlan: 'プレミアムプラン',
+    specialOffer: '特別オファー',
+    month: '月',
+    activatePremium: 'プレミアム有効化',
+    
+    // Dashboard warnings
+    coinsRunningOut: 'コインが不足しています！',
+    remaining: '残り',
+    upgradeForUnlimited: 'プレミアムにアップグレードして月額€15で無制限アクセスを取得',
+    coinsFinished: 'コインが尽きました！',
+    upgradeToUseFunctionalities: 'すべての機能を引き続き使用するには、プレミアムプランにアップグレードしてください',
+    viewPremiumPlans: 'プレミアムプランを表示'
   },
   
   ko: {
@@ -616,7 +903,48 @@ const translations = {
     meals: '식사',
     aiNutritional: 'AI 영양',
     progress: '진행상황',
-    plans: '플랜'
+    plans: '플랜',
+    
+    // AI Chat
+    aiGreeting: '안녕하세요',
+    aiIntroduction: '개인화된 영양 AI입니다. 식단, 건강한 레시피, 재료 대체 등에 대한 질문을 도와드릴 수 있습니다. 오늘 어떻게 도와드릴까요?',
+    
+    // Health Metrics
+    bmi: 'BMI',
+    bmr: '기초대사율',
+    dailyCalories: '일일 소모량',
+    targetCalories: '일일 칼로리 목표',
+    idealWeight: '이상 체중',
+    currentWeight: '현재 체중',
+    bodyFat: '체지방',
+    muscleMass: '근육량',
+    waistMeasure: '허리둘레',
+    
+    // Meal Plan
+    personalizedMealPlan: '개인화된 식사 계획',
+    totalCalories: '총 칼로리',
+    meals: '식사',
+    proteins: '단백질',
+    forbiddenFoods: '피해야 할 음식',
+    
+    // Progress Tracker
+    progressEvolution: '측정 변화',
+    newMeasurement: '새 측정',
+    achievements: '성취',
+    
+    // Pricing
+    premiumPlan: '프리미엄 플랜',
+    specialOffer: '특별 제안',
+    month: '월',
+    activatePremium: '프리미엄 활성화',
+    
+    // Dashboard warnings
+    coinsRunningOut: '코인이 부족합니다!',
+    remaining: '남음',
+    upgradeForUnlimited: '프리미엄으로 업그레이드하고 월 €15로 무제한 액세스를 받으세요',
+    coinsFinished: '코인이 다 떨어졌습니다!',
+    upgradeToUseFunctionalities: '모든 기능을 계속 사용하려면 프리미엄 플랜으로 업그레이드하세요',
+    viewPremiumPlans: '프리미엄 플랜 보기'
   },
   
   zh: {
@@ -692,7 +1020,48 @@ const translations = {
     meals: '餐食',
     aiNutritional: 'AI营养',
     progress: '进度',
-    plans: '计划'
+    plans: '计划',
+    
+    // AI Chat
+    aiGreeting: '您好',
+    aiIntroduction: '我是您的个性化营养AI。我可以帮助回答关于饮食、健康食谱、食材替代等问题。今天我能为您做些什么？',
+    
+    // Health Metrics
+    bmi: 'BMI',
+    bmr: '基础代谢率',
+    dailyCalories: '每日消耗',
+    targetCalories: '每日卡路里目标',
+    idealWeight: '理想体重',
+    currentWeight: '当前体重',
+    bodyFat: '体脂肪',
+    muscleMass: '肌肉量',
+    waistMeasure: '腰围',
+    
+    // Meal Plan
+    personalizedMealPlan: '个性化膳食计划',
+    totalCalories: '总卡路里',
+    meals: '餐食',
+    proteins: '蛋白质',
+    forbiddenFoods: '应避免的食物',
+    
+    // Progress Tracker
+    progressEvolution: '测量演变',
+    newMeasurement: '新测量',
+    achievements: '成就',
+    
+    // Pricing
+    premiumPlan: '高级计划',
+    specialOffer: '特别优惠',
+    month: '月',
+    activatePremium: '激活高级版',
+    
+    // Dashboard warnings
+    coinsRunningOut: '您的金币即将用完！',
+    remaining: '剩余',
+    upgradeForUnlimited: '升级到高级版，每月仅€15即可获得无限访问',
+    coinsFinished: '您的金币已用完！',
+    upgradeToUseFunctionalities: '要继续使用所有功能，请升级到高级计划',
+    viewPremiumPlans: '查看高级计划'
   },
   
   ru: {
@@ -768,7 +1137,48 @@ const translations = {
     meals: 'Питание',
     aiNutritional: 'ИИ Питание',
     progress: 'Прогресс',
-    plans: 'Планы'
+    plans: 'Планы',
+    
+    // AI Chat
+    aiGreeting: 'Привет',
+    aiIntroduction: 'Я ваш персонализированный ИИ по питанию. Могу помочь с вопросами о питании, здоровых рецептах, замене ингредиентов и многом другом. Как я могу помочь вам сегодня?',
+    
+    // Health Metrics
+    bmi: 'ИМТ',
+    bmr: 'Базальный Метаболизм',
+    dailyCalories: 'Дневной Расход',
+    targetCalories: 'Дневная Цель Калорий',
+    idealWeight: 'Идеальный Вес',
+    currentWeight: 'Текущий Вес',
+    bodyFat: 'Жир Тела',
+    muscleMass: 'Мышечная Масса',
+    waistMeasure: 'Обхват Талии',
+    
+    // Meal Plan
+    personalizedMealPlan: 'Персонализированный План Питания',
+    totalCalories: 'Общие Калории',
+    meals: 'Приемы Пищи',
+    proteins: 'Белки',
+    forbiddenFoods: 'Продукты для Избегания',
+    
+    // Progress Tracker
+    progressEvolution: 'Эволюция Измерений',
+    newMeasurement: 'Новое Измерение',
+    achievements: 'Достижения',
+    
+    // Pricing
+    premiumPlan: 'Премиум План',
+    specialOffer: 'Специальное Предложение',
+    month: 'месяц',
+    activatePremium: 'Активировать Премиум',
+    
+    // Dashboard warnings
+    coinsRunningOut: 'Ваши монеты заканчиваются!',
+    remaining: 'осталось',
+    upgradeForUnlimited: 'Обновитесь до Премиум и получите неограниченный доступ всего за €15/месяц',
+    coinsFinished: 'Ваши монеты закончились!',
+    upgradeToUseFunctionalities: 'Чтобы продолжить использовать все функции, обновитесь до Премиум Плана',
+    viewPremiumPlans: 'Посмотреть Премиум Планы'
   }
 };
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { PersonalData, UserSubscription } from '../types/PersonalData';
+import { useLanguage } from '../contexts/LanguageContext';
 import { MessageSquare, Send, Bot, User, Sparkles, Coins, Lock } from 'lucide-react';
 
 interface AIChatProps {
@@ -16,11 +17,13 @@ interface Message {
 }
 
 export const AIChat: React.FC<AIChatProps> = ({ personalData, userSubscription, onSubscriptionUpdate }) => {
+  const { t } = useLanguage();
+  
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
       sender: 'ai',
-      content: `Olá ${personalData.name}! Sou sua IA Nutricional personalizada. Posso ajudar com dúvidas sobre alimentação, receitas saudáveis, substituições de ingredientes e muito mais. Como posso te ajudar hoje?`,
+      content: `${t('aiGreeting')} ${personalData.name}! ${t('aiIntroduction')}`,
       timestamp: new Date()
     }
   ]);

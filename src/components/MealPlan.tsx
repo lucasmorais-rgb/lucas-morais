@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { PersonalData, UserSubscription } from '../types/PersonalData';
+import { useLanguage } from '../contexts/LanguageContext';
 import { Utensils, Clock, Users, ChefHat, AlertTriangle, Sparkles, Coins, Lock } from 'lucide-react';
 
 interface MealPlanProps {
@@ -22,6 +23,8 @@ interface Meal {
 }
 
 export const MealPlan: React.FC<MealPlanProps> = ({ personalData, userSubscription, onSubscriptionUpdate }) => {
+  const { t } = useLanguage();
+  
   const [selectedMeal, setSelectedMeal] = useState<Meal | null>(null);
 
   const canViewMealDetails = userSubscription.isUnlimited || userSubscription.coins > 0;

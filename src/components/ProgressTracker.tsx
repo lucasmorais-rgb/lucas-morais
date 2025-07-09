@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { PersonalData } from '../types/PersonalData';
+import { useLanguage } from '../contexts/LanguageContext';
 import { TrendingUp, Calendar, Award, Target, Plus, Trophy, Flame, Zap, X, Edit3, Trash2, Save, BarChart3, Activity } from 'lucide-react';
 
 interface ProgressTrackerProps {
@@ -28,6 +29,8 @@ interface MeasurementEntry {
 }
 
 export const ProgressTracker: React.FC<ProgressTrackerProps> = ({ personalData }) => {
+  const { t } = useLanguage();
+  
   const [showAddMeasurement, setShowAddMeasurement] = useState(false);
   const [editingEntry, setEditingEntry] = useState<string | null>(null);
   const [newWeight, setNewWeight] = useState('');

@@ -97,10 +97,10 @@ export const Dashboard: React.FC<DashboardProps> = ({
               <Coins className="w-6 h-6 text-yellow-400" />
               <div className="min-w-0 flex-1">
                 <p className="text-yellow-300 font-medium">
-                  Suas moedas estão acabando! ({userSubscription.coins} restantes)
+                  {t('coinsRunningOut')} ({userSubscription.coins} {t('remaining')})
                 </p>
                 <p className="text-yellow-400 text-sm break-words">
-                  Faça upgrade para o Premium e tenha acesso ilimitado por apenas R$ 19,90/mês
+                  {t('upgradeForUnlimited')}
                 </p>
               </div>
             </div>
@@ -112,15 +112,15 @@ export const Dashboard: React.FC<DashboardProps> = ({
           <div className="bg-red-500/20 border border-red-500/30 rounded-2xl p-4 sm:p-6 mb-4 sm:mb-6">
             <div className="text-center">
               <Coins className="w-12 h-12 text-red-400 mx-auto mb-4" />
-              <h3 className="text-lg sm:text-xl font-bold text-white mb-2">Suas moedas acabaram!</h3>
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-2">{t('coinsFinished')}</h3>
               <p className="text-red-300 mb-4 text-sm sm:text-base">
-                Para continuar usando todas as funcionalidades, faça upgrade para o Plano Premium
+                {t('upgradeToUseFunctionalities')}
               </p>
               <button
                 onClick={() => setActiveTab('plans')}
                 className="px-4 sm:px-6 py-3 bg-gradient-to-r from-purple-400 to-blue-400 rounded-xl text-white font-semibold hover:from-purple-500 hover:to-blue-500 transition-all text-sm sm:text-base"
               >
-                Ver Planos Premium
+                {t('viewPremiumPlans')}
               </button>
             </div>
           </div>

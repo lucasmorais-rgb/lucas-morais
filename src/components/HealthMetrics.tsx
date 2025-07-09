@@ -1,5 +1,6 @@
 import React from 'react';
 import { PersonalData, HealthMetrics as HealthMetricsType } from '../types/PersonalData';
+import { useLanguage } from '../contexts/LanguageContext';
 import { Calculator, Target, Zap, Heart, TrendingUp, Scale } from 'lucide-react';
 
 interface HealthMetricsProps {
@@ -7,6 +8,8 @@ interface HealthMetricsProps {
 }
 
 export const HealthMetrics: React.FC<HealthMetricsProps> = ({ personalData }) => {
+  const { t } = useLanguage();
+  
   const calculateMetrics = (): HealthMetricsType => {
     const { height, weight, age, gender, activityLevel, goal } = personalData;
     

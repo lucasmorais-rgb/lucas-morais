@@ -1,5 +1,6 @@
 import React from 'react';
 import { UserSubscription } from '../types/PersonalData';
+import { useLanguage } from '../contexts/LanguageContext';
 import { Crown, Star, Zap, Check, ExternalLink, Sparkles, Heart, Target } from 'lucide-react';
 
 interface PricingPlansProps {
@@ -7,6 +8,8 @@ interface PricingPlansProps {
 }
 
 export const PricingPlans: React.FC<PricingPlansProps> = ({ onSubscriptionUpdate }) => {
+  const { t } = useLanguage();
+  
   const handlePlanSelect = () => {
     // Redirecionar diretamente para a página de pagamento da Kiwify
     window.open('https://pay.hotmart.com/R100717663O', '_blank');
