@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PersonalData, UserSubscription } from '../types/PersonalData';
 import { useLanguage } from '../contexts/LanguageContext';
 import { MessageSquare, Send, Bot, User, Sparkles, Coins, Lock } from 'lucide-react';
