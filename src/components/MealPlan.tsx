@@ -20,15 +20,17 @@ export const MealPlan: React.FC<MealPlanProps> = ({ personalData, userSubscripti
   const handleMealClick = (meal: Meal) => {
     if (!canViewMealDetails) return;
     
-    // Deduzir moeda se não for premium
-    if (!userSubscription.isUnlimited) {
-      onSubscriptionUpdate({
-        ...userSubscription,
-        coins: Math.max(0, userSubscription.coins - 1)
-      });
-    }
-    
     setSelectedMeal(meal);
+    
+    // Deduzir moeda após mostrar o modal se não for premium
+    if (!userSubscription.isUnlimited) {
+      setTimeout(() => {
+        onSubscriptionUpdate({
+          ...userSubscription,
+          coins: Math.max(0, userSubscription.coins - 1)
+        });
+      }, 100);
+    }
   };
 
 

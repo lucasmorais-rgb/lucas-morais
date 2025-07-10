@@ -81,7 +81,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
             {!userSubscription.isPremium && userSubscription.coins <= 5 && (
               <button
                 onClick={() => setActiveTab('plans')}
-                className="px-3 sm:px-4 py-2 bg-gradient-to-r from-purple-400 to-blue-400 rounded-xl text-white text-xs sm:text-sm hover:from-purple-500 hover:to-blue-500 transition-all whitespace-nowrap"
+                className="px-3 sm:px-4 py-2 bg-gradient-to-r from-purple-400 to-blue-400 rounded-xl text-white text-xs sm:text-sm hover:from-purple-500 hover:to-blue-500 transition-all whitespace-nowrap flex-shrink-0"
               >
                 <span className="hidden sm:inline">{t('upgradePremium')}</span>
                 <span className="sm:hidden">{t('premium')}</span>

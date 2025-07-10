@@ -32,7 +32,7 @@ export const AIChat: React.FC<AIChatProps> = ({ personalData, userSubscription, 
   ]);
   
   // Atualizar mensagem inicial quando dados do usuário mudarem
-  useEffect(() => {
+  React.useEffect(() => {
     setMessages([getInitialMessage()]);
   }, [personalData.name, t]);
   

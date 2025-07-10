@@ -44,10 +44,10 @@ export const HealthMetrics: React.FC<HealthMetricsProps> = ({ personalData }) =>
     
     // BMI Category
     let bmiCategory = '';
-    if (bmi < 18.5) bmiCategory = 'Abaixo do peso';
-    else if (bmi < 25) bmiCategory = 'Peso normal';
-    else if (bmi < 30) bmiCategory = 'Sobrepeso';
-    else bmiCategory = 'Obesidade';
+    if (bmi < 18.5) bmiCategory = t('underweight') || 'Abaixo do peso';
+    else if (bmi < 25) bmiCategory = t('normalWeight') || 'Peso normal';
+    else if (bmi < 30) bmiCategory = t('overweight') || 'Sobrepeso';
+    else bmiCategory = t('obesity') || 'Obesidade';
     
     // Ideal Weight (using BMI 22 as target)
     const idealWeight = 22 * ((height / 100) ** 2);
@@ -103,13 +103,13 @@ export const HealthMetrics: React.FC<HealthMetricsProps> = ({ personalData }) =>
   const getGoalDescription = () => {
     switch (personalData.goal) {
       case 'lose_weight':
-        return 'Déficit calórico para perda de peso';
+        return t('calorieDeficitForWeightLoss') || 'Déficit calórico para perda de peso';
       case 'gain_muscle':
-        return 'Superávit calórico para ganho de massa';
+        return t('calorieSurplusForMuscleGain') || 'Superávit calórico para ganho de massa';
       case 'lose_fat_maintain_muscle':
-        return 'Déficit moderado para definição';
+        return t('moderateDeficitForDefinition') || 'Déficit moderado para definição';
       default:
-        return 'Manutenção do peso atual';
+        return t('currentWeightMaintenance') || 'Manutenção do peso atual';
     }
   };
 

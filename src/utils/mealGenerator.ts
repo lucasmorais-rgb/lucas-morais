@@ -42,7 +42,7 @@ const mealTemplates = {
         '1 copo de leite desnatado',
         'Canela a gosto'
       ],
-      preparation: 'Prepare ovos mexidos com pouco óleo. Corte a banana em fatias e polvilhe canela. Aqueça o leite e sirva com o pão integral.',
+      preparation: 'Prepare ovos mexidos com pouco óleo. Corte a banana em fatias e polvilhe canela. Aqueça o leite e sirva com o pão integral tostado.',
       tips: ['Evite açúcar refinado', 'Beba água antes da refeição', 'Mastigue bem os alimentos']
     },
     lunch: {
@@ -59,7 +59,7 @@ const mealTemplates = {
         '1/2 colher de azeite extra virgem',
         'Salada verde à vontade'
       ],
-      preparation: 'Grelhe o frango temperado com ervas. Cozinhe o arroz integral. Refogue o brócolis no vapor. Monte o prato com salada.',
+      preparation: 'Tempere o frango com ervas e grelhe até dourar. Cozinhe o arroz integral em água e sal. Cozinhe o brócolis no vapor por 5 minutos. Monte o prato com a salada verde e regue com azeite.',
       tips: ['Tempere com ervas naturais', 'Evite frituras', 'Coma devagar e mastigue bem']
     },
     snack: {
@@ -75,7 +75,7 @@ const mealTemplates = {
         '1 maçã pequena',
         'Canela em pó'
       ],
-      preparation: 'Corte a maçã em pedaços. Misture com o iogurte e adicione as amêndoas. Polvilhe canela.',
+      preparation: 'Lave e corte a maçã em pedaços pequenos. Em uma tigela, misture a maçã com o iogurte grego. Adicione as amêndoas picadas e polvilhe canela a gosto.',
       tips: ['Opte por frutas da estação', 'Evite industrializados', 'Hidrate-se bem']
     },
     dinner: {
@@ -92,7 +92,7 @@ const mealTemplates = {
         '1/2 colher de azeite',
         'Ervas finas'
       ],
-      preparation: 'Grelhe o salmão com ervas. Cozinhe a quinoa. Refogue os legumes levemente. Tempere com azeite e ervas.',
+      preparation: 'Tempere o salmão com ervas finas e grelhe por 4-5 minutos de cada lado. Cozinhe a quinoa em água fervente por 15 minutos. Refogue os legumes em pouco óleo. Finalize com azeite e ervas.',
       tips: ['Jante 3h antes de dormir', 'Evite carboidratos pesados', 'Prefira proteínas magras']
     }
   },
@@ -111,7 +111,7 @@ const mealTemplates = {
         '1 copo de leite integral',
         '1 colher de pasta de amendoim'
       ],
-      preparation: 'Prepare ovos mexidos. Torre o pão. Corte a banana e adicione pasta de amendoim. Sirva com leite.',
+      preparation: 'Bata os ovos e prepare mexidos em fogo baixo. Toste o pão integral. Corte a banana em fatias e passe pasta de amendoim no pão. Sirva tudo acompanhado do leite.',
       tips: ['Coma logo após acordar', 'Inclua gorduras boas', 'Hidrate-se bem']
     },
     lunch: {
@@ -128,7 +128,7 @@ const mealTemplates = {
         '1 colher de azeite extra virgem',
         'Salada variada'
       ],
-      preparation: 'Grelhe o frango bem temperado. Cozinhe o arroz e feijão. Monte o prato com salada e regue com azeite.',
+      preparation: 'Tempere o frango com alho, sal e ervas, depois grelhe até dourar. Cozinhe o arroz integral e o feijão separadamente. Monte o prato com a salada variada e regue tudo com azeite extra virgem.',
       tips: ['Varie as proteínas', 'Inclua leguminosas', 'Coma até se sentir satisfeito']
     },
     snack: {
@@ -145,7 +145,7 @@ const mealTemplates = {
         '200ml de leite integral',
         '1 colher de mel'
       ],
-      preparation: 'Bata todos os ingredientes no liquidificador com gelo. Consuma 30min antes do treino.',
+      preparation: 'No liquidificador, adicione o leite, banana, whey protein, aveia e mel. Bata por 1 minuto até ficar homogêneo. Adicione gelo se desejar. Consuma 30 minutos antes do treino.',
       tips: ['Ideal para pré-treino', 'Ajuste a consistência', 'Beba imediatamente']
     },
     dinner: {
@@ -162,7 +162,7 @@ const mealTemplates = {
         '1 colher de azeite',
         'Temperos naturais'
       ],
-      preparation: 'Grelhe a carne no ponto desejado. Asse a batata doce. Grelhe os legumes. Tempere com azeite e ervas.',
+      preparation: 'Tempere a carne com sal, pimenta e ervas, grelhe no ponto desejado. Asse a batata doce no forno por 40 minutos. Grelhe os legumes em fatias. Finalize tudo com azeite e temperos frescos.',
       tips: ['Varie os tipos de carne', 'Inclua carboidratos complexos', 'Coma com calma']
     }
   },
@@ -181,7 +181,7 @@ const mealTemplates = {
         '1 copo de leite desnatado',
         'Temperos a gosto'
       ],
-      preparation: 'Prepare ovos mexidos. Torre o pão. Amasse o abacate e tempere. Sirva com leite.',
+      preparation: 'Bata os ovos com as claras e prepare mexidos em fogo baixo. Toste o pão integral. Amasse o abacate com sal, pimenta e limão. Sirva tudo acompanhado do leite gelado.',
       tips: ['Gorduras boas são essenciais', 'Mantenha proteína alta', 'Evite açúcares']
     },
     lunch: {
@@ -198,7 +198,7 @@ const mealTemplates = {
         '1 colher de azeite',
         'Salada verde abundante'
       ],
-      preparation: 'Grelhe o frango com temperos. Cozinhe o arroz. Refogue o brócolis. Monte com salada.',
+      preparation: 'Tempere o frango com ervas e grelhe até dourar completamente. Cozinhe o arroz integral em água e sal. Refogue o brócolis rapidamente para manter a textura. Monte o prato com abundante salada verde.',
       tips: ['Priorize vegetais', 'Controle as porções', 'Mastigue bem']
     },
     snack: {
@@ -215,7 +215,7 @@ const mealTemplates = {
         '1 colher de chia',
         'Canela'
       ],
-      preparation: 'Misture o whey no iogurte. Corte a maçã. Adicione chia e canela.',
+      preparation: 'Em uma tigela, misture bem o whey protein com o iogurte grego até ficar homogêneo. Corte a maçã em cubos pequenos. Adicione a maçã, chia e canela por cima.',
       tips: ['Ideal pós-treino', 'Rica em proteína', 'Baixo em açúcar']
     },
     dinner: {
@@ -232,7 +232,7 @@ const mealTemplates = {
         '1 colher de azeite',
         'Ervas aromáticas'
       ],
-      preparation: 'Grelhe o peixe com limão. Refogue os legumes. Cozinhe a quinoa. Tempere com ervas.',
+      preparation: 'Tempere o peixe com sal, pimenta e limão, grelhe por 3-4 minutos de cada lado. Refogue os legumes em pouco óleo mantendo a textura. Cozinhe a quinoa em água fervente. Finalize com azeite e ervas frescas.',
       tips: ['Jantar leve', 'Rico em ômega-3', 'Evite carboidratos simples']
     }
   },
@@ -251,7 +251,7 @@ const mealTemplates = {
         '1 copo de leite semi-desnatado',
         '1 colher de geleia sem açúcar'
       ],
-      preparation: 'Prepare ovos como preferir. Torre o pão e passe geleia. Corte a banana. Sirva com leite.',
+      preparation: 'Prepare os ovos da forma que preferir (mexidos, cozidos ou fritos com pouco óleo). Toste o pão integral e passe a geleia. Corte a banana em fatias. Sirva tudo acompanhado do leite.',
       tips: ['Mantenha regularidade', 'Varie os alimentos', 'Escute seu corpo']
     },
     lunch: {
@@ -268,7 +268,7 @@ const mealTemplates = {
         '1 colher de azeite',
         'Salada mista'
       ],
-      preparation: 'Prepare a proteína grelhada. Cozinhe arroz e feijão. Monte o prato com salada.',
+      preparation: 'Tempere e grelhe a proteína escolhida até o ponto desejado. Cozinhe o arroz integral e o feijão separadamente. Prepare uma salada mista colorida. Monte o prato balanceando todos os elementos.',
       tips: ['Varie as proteínas', 'Inclua fibras', 'Coma com prazer']
     },
     snack: {
@@ -285,7 +285,7 @@ const mealTemplates = {
         '1 colher de granola',
         'Mel a gosto'
       ],
-      preparation: 'Misture o iogurte com granola. Corte a fruta. Adicione castanhas e mel.',
+      preparation: 'Em uma tigela, coloque o iogurte natural e misture com a granola. Corte a fruta da estação em pedaços. Adicione as castanhas picadas e regue com mel a gosto.',
       tips: ['Varie as frutas', 'Inclua oleaginosas', 'Aproveite o momento']
     },
     dinner: {
@@ -302,7 +302,7 @@ const mealTemplates = {
         '1 colher de azeite',
         'Temperos frescos'
       ],
-      preparation: 'Prepare a proteína como preferir. Cozinhe o carboidrato. Refogue os legumes.',
+      preparation: 'Prepare a proteína da forma que mais gostar (grelhada, assada ou refogada). Cozinhe o carboidrato complexo escolhido. Refogue os legumes coloridos mantendo a textura. Tempere tudo com azeite e ervas frescas.',
       tips: ['Jante com a família', 'Varie os sabores', 'Coma sem pressa']
     }
   }

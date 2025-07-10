@@ -125,7 +125,17 @@ const translations = {
     upgradeForUnlimited: 'Faça upgrade para o Premium e tenha acesso ilimitado por apenas €15/mês',
     coinsFinished: 'Suas moedas acabaram!',
     upgradeToUseFunctionalities: 'Para continuar usando todas as funcionalidades, faça upgrade para o Plano Premium',
-    viewPremiumPlans: 'Ver Planos Premium'
+    viewPremiumPlans: 'Ver Planos Premium',
+    
+    // Health Metrics additional
+    underweight: 'Abaixo do peso',
+    normalWeight: 'Peso normal',
+    overweight: 'Sobrepeso',
+    obesity: 'Obesidade',
+    calorieDeficitForWeightLoss: 'Déficit calórico para perda de peso',
+    calorieSurplusForMuscleGain: 'Superávit calórico para ganho de massa',
+    moderateDeficitForDefinition: 'Déficit moderado para definição',
+    currentWeightMaintenance: 'Manutenção do peso atual'
   },
   
   en: {
@@ -242,7 +252,17 @@ const translations = {
     upgradeForUnlimited: 'Upgrade to Premium and get unlimited access for just €15/month',
     coinsFinished: 'Your coins are finished!',
     upgradeToUseFunctionalities: 'To continue using all functionalities, upgrade to Premium Plan',
-    viewPremiumPlans: 'View Premium Plans'
+    viewPremiumPlans: 'View Premium Plans',
+    
+    // Health Metrics additional
+    underweight: 'Underweight',
+    normalWeight: 'Normal weight',
+    overweight: 'Overweight',
+    obesity: 'Obesity',
+    calorieDeficitForWeightLoss: 'Calorie deficit for weight loss',
+    calorieSurplusForMuscleGain: 'Calorie surplus for muscle gain',
+    moderateDeficitForDefinition: 'Moderate deficit for definition',
+    currentWeightMaintenance: 'Current weight maintenance'
   },
   
   es: {
@@ -359,7 +379,17 @@ const translations = {
     upgradeForUnlimited: 'Actualiza a Premium y obtén acceso ilimitado por solo €15/mes',
     coinsFinished: '¡Tus monedas se han agotado!',
     upgradeToUseFunctionalities: 'Para continuar usando todas las funcionalidades, actualiza al Plan Premium',
-    viewPremiumPlans: 'Ver Planes Premium'
+    viewPremiumPlans: 'Ver Planes Premium',
+    
+    // Health Metrics additional
+    underweight: 'Bajo peso',
+    normalWeight: 'Peso normal',
+    overweight: 'Sobrepeso',
+    obesity: 'Obesidad',
+    calorieDeficitForWeightLoss: 'Déficit calórico para pérdida de peso',
+    calorieSurplusForMuscleGain: 'Superávit calórico para ganancia muscular',
+    moderateDeficitForDefinition: 'Déficit moderado para definición',
+    currentWeightMaintenance: 'Mantenimiento del peso actual'
   },
   
   fr: {
@@ -476,7 +506,17 @@ const translations = {
     upgradeForUnlimited: 'Passez au Premium et obtenez un accès illimité pour seulement 15€/mois',
     coinsFinished: 'Vos pièces sont épuisées !',
     upgradeToUseFunctionalities: 'Pour continuer à utiliser toutes les fonctionnalités, passez au Plan Premium',
-    viewPremiumPlans: 'Voir les Plans Premium'
+    viewPremiumPlans: 'Voir les Plans Premium',
+    
+    // Health Metrics additional
+    underweight: 'Insuffisance pondérale',
+    normalWeight: 'Poids normal',
+    overweight: 'Surpoids',
+    obesity: 'Obésité',
+    calorieDeficitForWeightLoss: 'Déficit calorique pour perte de poids',
+    calorieSurplusForMuscleGain: 'Surplus calorique pour gain musculaire',
+    moderateDeficitForDefinition: 'Déficit modéré pour définition',
+    currentWeightMaintenance: 'Maintien du poids actuel'
   },
   
   de: {
@@ -593,7 +633,17 @@ const translations = {
     upgradeForUnlimited: 'Upgraden Sie auf Premium und erhalten Sie unbegrenzten Zugang für nur 15€/Monat',
     coinsFinished: 'Ihre Münzen sind aufgebraucht!',
     upgradeToUseFunctionalities: 'Um alle Funktionen weiter nutzen zu können, upgraden Sie auf den Premium-Plan',
-    viewPremiumPlans: 'Premium-Pläne Anzeigen'
+    viewPremiumPlans: 'Premium-Pläne Anzeigen',
+    
+    // Health Metrics additional
+    underweight: 'Untergewicht',
+    normalWeight: 'Normalgewicht',
+    overweight: 'Übergewicht',
+    obesity: 'Adipositas',
+    calorieDeficitForWeightLoss: 'Kaloriendefizit für Gewichtsverlust',
+    calorieSurplusForMuscleGain: 'Kalorienüberschuss für Muskelaufbau',
+    moderateDeficitForDefinition: 'Moderates Defizit für Definition',
+    currentWeightMaintenance: 'Aktuelles Gewicht halten'
   },
   
   it: {
@@ -710,7 +760,17 @@ const translations = {
     upgradeForUnlimited: 'Passa al Premium e ottieni accesso illimitato per soli €15/mese',
     coinsFinished: 'Le tue monete sono finite!',
     upgradeToUseFunctionalities: 'Per continuare a utilizzare tutte le funzionalità, passa al Piano Premium',
-    viewPremiumPlans: 'Visualizza Piani Premium'
+    viewPremiumPlans: 'Visualizza Piani Premium',
+    
+    // Health Metrics additional
+    underweight: 'Sottopeso',
+    normalWeight: 'Peso normale',
+    overweight: 'Sovrappeso',
+    obesity: 'Obesità',
+    calorieDeficitForWeightLoss: 'Deficit calorico per perdita di peso',
+    calorieSurplusForMuscleGain: 'Surplus calorico per guadagno muscolare',
+    moderateDeficitForDefinition: 'Deficit moderato per definizione',
+    currentWeightMaintenance: 'Mantenimento peso attuale'
   },
   
   ja: {
@@ -827,7 +887,17 @@ const translations = {
     upgradeForUnlimited: 'プレミアムにアップグレードして月額€15で無制限アクセスを取得',
     coinsFinished: 'コインが尽きました！',
     upgradeToUseFunctionalities: 'すべての機能を引き続き使用するには、プレミアムプランにアップグレードしてください',
-    viewPremiumPlans: 'プレミアムプランを表示'
+    viewPremiumPlans: 'プレミアムプランを表示',
+    
+    // Health Metrics additional
+    underweight: '低体重',
+    normalWeight: '標準体重',
+    overweight: '過体重',
+    obesity: '肥満',
+    calorieDeficitForWeightLoss: '体重減少のためのカロリー不足',
+    calorieSurplusForMuscleGain: '筋肉増加のためのカロリー過剰',
+    moderateDeficitForDefinition: '体型改善のための適度な不足',
+    currentWeightMaintenance: '現在の体重維持'
   },
   
   ko: {
@@ -944,7 +1014,17 @@ const translations = {
     upgradeForUnlimited: '프리미엄으로 업그레이드하고 월 €15로 무제한 액세스를 받으세요',
     coinsFinished: '코인이 다 떨어졌습니다!',
     upgradeToUseFunctionalities: '모든 기능을 계속 사용하려면 프리미엄 플랜으로 업그레이드하세요',
-    viewPremiumPlans: '프리미엄 플랜 보기'
+    viewPremiumPlans: '프리미엄 플랜 보기',
+    
+    // Health Metrics additional
+    underweight: '저체중',
+    normalWeight: '정상 체중',
+    overweight: '과체중',
+    obesity: '비만',
+    calorieDeficitForWeightLoss: '체중 감량을 위한 칼로리 부족',
+    calorieSurplusForMuscleGain: '근육 증가를 위한 칼로리 과잉',
+    moderateDeficitForDefinition: '체형 개선을 위한 적당한 부족',
+    currentWeightMaintenance: '현재 체중 유지'
   },
   
   zh: {
@@ -1061,7 +1141,17 @@ const translations = {
     upgradeForUnlimited: '升级到高级版，每月仅€15即可获得无限访问',
     coinsFinished: '您的金币已用完！',
     upgradeToUseFunctionalities: '要继续使用所有功能，请升级到高级计划',
-    viewPremiumPlans: '查看高级计划'
+    viewPremiumPlans: '查看高级计划',
+    
+    // Health Metrics additional
+    underweight: '体重不足',
+    normalWeight: '正常体重',
+    overweight: '超重',
+    obesity: '肥胖',
+    calorieDeficitForWeightLoss: '减重的卡路里不足',
+    calorieSurplusForMuscleGain: '增肌的卡路里过剩',
+    moderateDeficitForDefinition: '塑形的适度不足',
+    currentWeightMaintenance: '维持当前体重'
   },
   
   ru: {
@@ -1178,7 +1268,17 @@ const translations = {
     upgradeForUnlimited: 'Обновитесь до Премиум и получите неограниченный доступ всего за €15/месяц',
     coinsFinished: 'Ваши монеты закончились!',
     upgradeToUseFunctionalities: 'Чтобы продолжить использовать все функции, обновитесь до Премиум Плана',
-    viewPremiumPlans: 'Посмотреть Премиум Планы'
+    viewPremiumPlans: 'Посмотреть Премиум Планы',
+    
+    // Health Metrics additional
+    underweight: 'Недостаточный вес',
+    normalWeight: 'Нормальный вес',
+    overweight: 'Избыточный вес',
+    obesity: 'Ожирение',
+    calorieDeficitForWeightLoss: 'Дефицит калорий для похудения',
+    calorieSurplusForMuscleGain: 'Избыток калорий для набора мышц',
+    moderateDeficitForDefinition: 'Умеренный дефицит для рельефа',
+    currentWeightMaintenance: 'Поддержание текущего веса'
   }
 };
 

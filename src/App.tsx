@@ -21,7 +21,7 @@ function App() {
     if (personalData) {
       setCurrentScreen('dashboard');
     }
-  }, [personalData]);
+  }, [personalData, setCurrentScreen]);
 
   const handleDataSubmit = (data: PersonalData) => {
     setPersonalDataStorage(data);

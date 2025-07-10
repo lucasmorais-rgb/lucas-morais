@@ -99,7 +99,7 @@ export const ProgressTracker: React.FC<ProgressTrackerProps> = ({ personalData }
   ]);
 
   // Atualizar conquistas quando medições mudarem
-  useEffect(() => {
+  React.useEffect(() => {
     const firstMeasurement = measurements[0];
     const latestMeasurement = measurements[measurements.length - 1];
     const weightDifference = firstMeasurement && latestMeasurement 
@@ -136,7 +136,7 @@ export const ProgressTracker: React.FC<ProgressTrackerProps> = ({ personalData }
           return achievement;
       }
     }));
-  }, [measurements]);
+  }, [measurements, setAchievements]);
 
   const currentMeasurement = measurements[measurements.length - 1];
   const firstMeasurement = measurements[0];
