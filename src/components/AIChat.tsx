@@ -54,7 +54,26 @@ export const AIChat: React.FC<AIChatProps> = ({ personalData, userSubscription, 
       
       'carboidrato': `Os carboidratos são essenciais para ${goalText}! Para seu objetivo:\n\n✅ Melhores fontes:\n• Aveia, quinoa, batata doce\n• Arroz integral, banana\n• Frutas em geral\n\n⏰ Timing ideal para você:\n• Manhã: carboidratos complexos\n• ${personalData.goal === 'lose_weight' ? 'Evite à noite' : 'Pré-treino: carboidratos simples'}\n• ${personalData.goal !== 'lose_weight' ? 'Pós-treino: carboidratos + proteína' : 'Prefira vegetais à noite'}`,
       
-      'proteína': `Proteína para ${goalText}:\n\n🥩 Recomendação para você: ${personalData.goal === 'gain_muscle' ? '2,2g' : personalData.goal === 'lose_weight' ? '1,8g' : '2,0g'} por kg\n🥩 Para seus ${personalData.weight}kg: ~${Math.round(personalData.weight * (personalData.goal === 'gain_muscle' ? 2.2 : personalData.goal === 'lose_weight' ? 1.8 : 2.0))}g por dia\n\n✅ Melhores fontes:\n• Peito de frango, peixe, ovos\n• Whey protein, caseína\n• ${personalData.goal === 'lose_weight' ? 'Queijo cottage, iogurte grego' : 'Carne vermelha magra, feijões'}\n\n⏰ Distribua em ${personalData.goal === 'gain_muscle' ? '5-6' : '4-5'} refeições`
+      'proteína': `Proteína para ${goalText}:\n\n🥩 Recomendação para você: ${personalData.goal === 'gain_muscle' ? '2,2g' : personalData.goal === 'lose_weight' ? '1,8g' : '2,0g'} por kg\n🥩 Para seus ${personalData.weight}kg: ~${Math.round(personalData.weight * (personalData.goal === 'gain_muscle' ? 2.2 : personalData.goal === 'lose_weight' ? 1.8 : 2.0))}g por dia\n\n✅ Melhores fontes:\n• Peito de frango, peixe, ovos\n• Whey protein, caseína\n• ${personalData.goal === 'lose_weight' ? 'Queijo cottage, iogurte grego' : 'Carne vermelha magra, feijões'}\n\n⏰ Distribua em ${personalData.goal === 'gain_muscle' ? '5-6' : '4-5'} refeições`,
+      
+      // Treinos por grupo muscular
+      'peito': `Treino de PEITO personalizado para ${goalText}:\n\n💪 Exercícios principais:\n• Supino reto (3x8-12)\n• Supino inclinado (3x8-12)\n• Crucifixo (3x10-15)\n• Flexão de braço (3x máximo)\n• Supino declinado (3x8-12)\n\n⚡ Dicas importantes:\n• ${personalData.goal === 'gain_muscle' ? 'Use cargas pesadas, 6-8 reps' : 'Foque na execução, 12-15 reps'}\n• Descanse 2-3 minutos entre séries\n• Treine peito 2x por semana\n• ${personalData.goal === 'lose_weight' ? 'Combine com cardio pós-treino' : 'Priorize a sobrecarga progressiva'}`,
+      
+      'costas': `Treino de COSTAS personalizado para ${goalText}:\n\n💪 Exercícios principais:\n• Barra fixa (3x máximo)\n• Remada curvada (3x8-12)\n• Puxada frontal (3x8-12)\n• Remada unilateral (3x10 cada)\n• Levantamento terra (3x6-8)\n\n⚡ Dicas importantes:\n• ${personalData.goal === 'gain_muscle' ? 'Foque em cargas pesadas' : 'Priorize a amplitude de movimento'}\n• Aperte as escápulas em cada rep\n• Mantenha o core contraído\n• ${personalData.goal === 'lose_weight' ? 'Use drop sets para queimar mais calorias' : 'Aumente a carga gradualmente'}`,
+      
+      'pernas': `Treino de PERNAS personalizado para ${goalText}:\n\n💪 Exercícios principais:\n• Agachamento (4x8-12)\n• Leg press (3x12-15)\n• Stiff (3x10-12)\n• Afundo (3x12 cada perna)\n• Panturrilha (4x15-20)\n\n⚡ Dicas importantes:\n• ${personalData.goal === 'gain_muscle' ? 'Use cargas altas, descanso longo' : 'Mantenha ritmo acelerado'}\n• Desça até 90° no agachamento\n• Treine pernas 2x por semana\n• ${personalData.goal === 'lose_weight' ? 'Pernas queimam muitas calorias!' : 'Pernas são a base da força'}`,
+      
+      'braços': `Treino de BRAÇOS personalizado para ${goalText}:\n\n💪 Bíceps:\n• Rosca direta (3x10-12)\n• Rosca martelo (3x10-12)\n• Rosca concentrada (3x12-15)\n\n💪 Tríceps:\n• Tríceps testa (3x10-12)\n• Mergulho (3x máximo)\n• Tríceps corda (3x12-15)\n\n⚡ Dicas importantes:\n• ${personalData.goal === 'gain_muscle' ? 'Foque na conexão mente-músculo' : 'Use superseries para intensidade'}\n• Amplitude completa de movimento\n• ${personalData.goal === 'lose_weight' ? 'Combine bíceps + tríceps' : 'Priorize exercícios compostos'}`,
+      
+      'ombros': `Treino de OMBROS personalizado para ${goalText}:\n\n💪 Exercícios principais:\n• Desenvolvimento militar (3x8-12)\n• Elevação lateral (3x12-15)\n• Elevação frontal (3x10-12)\n• Crucifixo inverso (3x12-15)\n• Encolhimento (3x12-15)\n\n⚡ Dicas importantes:\n• ${personalData.goal === 'gain_muscle' ? 'Varie os ângulos de trabalho' : 'Foque na resistência muscular'}\n• Cuidado com a postura\n• Aqueça bem antes do treino\n• ${personalData.goal === 'lose_weight' ? 'Use circuitos para cardio' : 'Trabalhe os 3 feixes do deltóide'}`,
+      
+      'abdômen': `Treino de ABDÔMEN personalizado para ${goalText}:\n\n💪 Exercícios principais:\n• Prancha (3x30-60s)\n• Abdominal supra (3x15-20)\n• Bicicleta (3x20 cada lado)\n• Prancha lateral (3x20s cada)\n• Mountain climber (3x30s)\n\n⚡ Dicas importantes:\n• ${personalData.goal === 'lose_weight' ? 'Combine com cardio intenso' : 'Foque na qualidade, não quantidade'}\n• Respire corretamente\n• Treine abdômen 3-4x por semana\n• ${personalData.goal === 'lose_weight' ? 'Lembre-se: abdômen se faz na cozinha!' : 'Varie os exercícios constantemente'}`,
+      
+      'cardio': `Cardio personalizado para ${goalText}:\n\n🏃‍♂️ Para seu objetivo:\n${personalData.goal === 'lose_weight' ? 
+        '• HIIT: 20-30min, 3-4x/semana\n• Caminhada: 45-60min, diário\n• Corrida: 30-40min, 3x/semana' : 
+        personalData.goal === 'gain_muscle' ? 
+        '• Cardio leve: 15-20min pós-treino\n• Caminhada: 30min, 2-3x/semana\n• Evite cardio excessivo' :
+        '• Cardio moderado: 30min, 3x/semana\n• HIIT: 20min, 2x/semana\n• Atividades que goste'}\n\n⚡ Dicas importantes:\n• ${personalData.goal === 'lose_weight' ? 'Cardio em jejum potencializa queima' : 'Cardio após musculação'}\n• Monitore frequência cardíaca\n• ${personalData.goal === 'gain_muscle' ? 'Não exagere no cardio' : 'Varie os tipos de cardio'}`
     };
   };
 
@@ -70,6 +89,34 @@ export const AIChat: React.FC<AIChatProps> = ({ personalData, userSubscription, 
       if (message.includes(keyword)) {
         return answer;
       }
+    }
+    
+    // Treino keywords
+    if (message.includes('treino') || message.includes('exercício') || message.includes('musculação')) {
+      if (message.includes('peito') || message.includes('peitoral')) {
+        return personalizedAnswers['peito'];
+      }
+      if (message.includes('costas') || message.includes('dorsal')) {
+        return personalizedAnswers['costas'];
+      }
+      if (message.includes('pernas') || message.includes('quadríceps') || message.includes('glúteo')) {
+        return personalizedAnswers['pernas'];
+      }
+      if (message.includes('braços') || message.includes('bíceps') || message.includes('tríceps')) {
+        return personalizedAnswers['braços'];
+      }
+      if (message.includes('ombros') || message.includes('deltóide')) {
+        return personalizedAnswers['ombros'];
+      }
+      if (message.includes('abdômen') || message.includes('abdominal') || message.includes('core')) {
+        return personalizedAnswers['abdômen'];
+      }
+      if (message.includes('cardio') || message.includes('aeróbico') || message.includes('corrida') || message.includes('caminhada')) {
+        return personalizedAnswers['cardio'];
+      }
+      
+      // Treino geral
+      return `Treino personalizado para ${personalData.name} (${personalData.goal === 'lose_weight' ? 'perder peso' : personalData.goal === 'gain_muscle' ? 'ganhar massa' : personalData.goal === 'lose_fat_maintain_muscle' ? 'definir o corpo' : 'manter o peso'}):\n\n💪 Divisão recomendada:\n• ${personalData.activityLevel === 'sedentary' ? 'Treino ABC (3x/semana)' : personalData.activityLevel === 'very_active' ? 'Treino ABCDE (5x/semana)' : 'Treino ABCD (4x/semana)'}\n• A: Peito + Tríceps\n• B: Costas + Bíceps\n• C: Pernas + Glúteos\n• D: Ombros + Abdômen\n\n⚡ Dicas gerais:\n• ${personalData.goal === 'lose_weight' ? 'Combine com cardio 4x/semana' : personalData.goal === 'gain_muscle' ? 'Foque em cargas pesadas' : 'Balance força e resistência'}\n• Descanse 48h entre treinos do mesmo grupo\n• Hidrate-se bem durante o treino\n\nQuer dicas específicas para algum grupo muscular?`;
     }
     
     // Default responses based on goal
@@ -130,7 +177,10 @@ export const AIChat: React.FC<AIChatProps> = ({ personalData, userSubscription, 
     "Qual shake caseiro você recomenda?",
     "Quanto de água devo beber?",
     "Quando devo comer carboidratos?",
-    "Quanta proteína preciso por dia?"
+    "Quanta proteína preciso por dia?",
+    "Como treinar peito?",
+    "Treino de pernas para iniciante",
+    "Melhor cardio para emagrecer"
   ];
 
   return (
