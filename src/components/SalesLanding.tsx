@@ -27,8 +27,8 @@ export const SalesLanding: React.FC = () => {
   }, []);
 
   const handlePurchase = () => {
-    // Redirecionar para página de pagamento (Hotmart, Eduzz, etc.)
-    window.open('https://pay.hotmart.com/R100717663O', '_blank');
+    // Redirecionar para página de pagamento Kiwify
+    window.open('https://pay.kiwify.com.br/bpe7te1', '_blank');
   };
 
   const testimonials = [
@@ -264,7 +264,7 @@ export const SalesLanding: React.FC = () => {
 
             <div className="bg-green-100 p-6 rounded-2xl">
               <h3 className="text-2xl font-bold text-green-800 mb-2">
-                VALOR TOTAL: R$ 278
+                VALOR TOTAL: R$ 181
               </h3>
               <p className="text-xl text-green-700">
                 Hoje você leva tudo por apenas <span className="font-bold text-2xl">R$ 27</span>
@@ -355,7 +355,7 @@ export const SalesLanding: React.FC = () => {
       <div className="bg-gray-900 text-white py-8">
         <div className="container mx-auto px-4 text-center">
           <p className="text-gray-400">
-            © 2024 Método Seca Tudo. Todos os direitos reservados.
+            © 2024 Seca Tudo. Todos os direitos reservados.
           </p>
           <p className="text-sm text-gray-500 mt-2">
             Este produto não substitui orientação médica. Consulte sempre um profissional.

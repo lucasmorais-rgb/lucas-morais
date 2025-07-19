@@ -11,8 +11,8 @@ export const PricingPlans: React.FC<PricingPlansProps> = ({ onSubscriptionUpdate
   const { t } = useLanguage();
   
   const handlePlanSelect = () => {
-    // Redirecionar diretamente para a página de pagamento da Kiwify
-    window.open('https://pay.hotmart.com/R100717663O', '_blank');
+    // Redirecionar diretamente para a página de pagamento do Kiwify
+    window.open('https://pay.kiwify.com.br/bpe7te1', '_blank');
   };
 
   return (
