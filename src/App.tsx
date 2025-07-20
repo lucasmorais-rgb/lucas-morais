@@ -9,9 +9,7 @@ function App() {
   // Estados do app
   const [personalData, setPersonalData] = useLocalStorage<PersonalData | null>('personalData', null);
   const [userSubscription, setUserSubscription] = useLocalStorage<UserSubscription>('userSubscription', {
-    isPremium: false,
-    coins: 10,
-    isUnlimited: false
+    hasAccess: false
   });
 
   const handleDataSubmit = (data: PersonalData) => {
@@ -21,9 +19,7 @@ function App() {
   const handleBack = () => {
     setPersonalData(null);
     setUserSubscription({
-      isPremium: false,
-      coins: 10,
-      isUnlimited: false
+      hasAccess: false
     });
   };
 

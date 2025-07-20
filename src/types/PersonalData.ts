@@ -18,7 +18,5 @@ export interface HealthMetrics {
 }
 
 export interface UserSubscription {
-  isPremium: boolean;
-  coins: number;
-  isUnlimited: boolean;
+  hasAccess: boolean;
 }

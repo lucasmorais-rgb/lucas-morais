@@ -1,7 +1,7 @@
 import React from 'react';
 import { UserSubscription } from '../types/PersonalData';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Crown, Star, Zap, Check, ExternalLink, Sparkles, Heart, Target } from 'lucide-react';
+import { Crown, Star, Zap, Check, ExternalLink, Sparkles, Heart, Target, Clock, Gift } from 'lucide-react';
 
 interface PricingPlansProps {
   onSubscriptionUpdate: (subscription: UserSubscription) => void;
@@ -21,21 +21,29 @@ export const PricingPlans: React.FC<PricingPlansProps> = ({ onSubscriptionUpdate
       <div className="text-center">
         <div className="flex justify-center items-center gap-2 mb-4">
           <Crown className="w-8 h-8 text-purple-400" />
-          <h2 className="text-2xl sm:text-3xl font-bold text-white">Plano Premium</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-white">Oferta Especial Limitada</h2>
         </div>
         <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto px-4">
-          Transforme sua vida com nossa plataforma completa de saúde e bem-estar. 
-          Tudo que você precisa para alcançar seus objetivos.
+          Acesso completo ao Seu Corpo Ideal com desconto imperdível! 
+          Transforme sua vida com nossa plataforma completa de saúde e bem-estar.
         </p>
+      </div>
+
+      {/* Urgency Banner */}
+      <div className="bg-gradient-to-r from-red-500 to-pink-500 text-white py-3 px-6 rounded-2xl text-center">
+        <div className="flex items-center justify-center gap-2 text-sm font-medium">
+          <Clock className="w-4 h-4" />
+          <span>⚡ OFERTA RELÂMPAGO - Apenas hoje com 89% de desconto!</span>
+        </div>
       </div>
 
       {/* Main Plan Card */}
       <div className="max-w-lg mx-auto px-4">
         <div className="relative bg-white/10 backdrop-blur-lg rounded-2xl p-6 sm:p-8 border border-purple-400/50 hover:bg-white/15 transition-all transform hover:scale-105 ring-2 ring-purple-400/50">
           <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-            <div className="bg-gradient-to-r from-purple-400 to-purple-600 text-white px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-semibold flex items-center gap-2">
-              <Sparkles className="w-4 h-4" />
-              Oferta Especial
+            <div className="bg-gradient-to-r from-red-500 to-pink-500 text-white px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-semibold flex items-center gap-2">
+              <Gift className="w-4 h-4" />
+              89% DE DESCONTO
             </div>
           </div>
 
@@ -43,28 +51,36 @@ export const PricingPlans: React.FC<PricingPlansProps> = ({ onSubscriptionUpdate
             <div className="inline-flex p-3 sm:p-4 rounded-xl bg-gradient-to-r from-purple-400 to-purple-600 mb-6">
               <Crown className="w-10 h-10 text-white" />
             </div>
-            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">Plano Premium</h3>
-            <p className="text-gray-300 mb-6 text-sm sm:text-base">Transformação completa com IA personalizada</p>
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">Acesso Completo</h3>
+            <p className="text-gray-300 mb-6 text-sm sm:text-base">Plataforma completa de transformação corporal</p>
             
-            <div className="flex items-baseline justify-center gap-2 mb-2">
-              <span className="text-3xl sm:text-5xl font-bold text-white">€15</span>
-              <span className="text-gray-400 text-base sm:text-lg">/mês</span>
+            <div className="mb-4">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <span className="text-lg text-gray-400 line-through">De R$ 250</span>
+                <span className="bg-red-500 text-white px-2 py-1 rounded text-sm font-bold">89% OFF</span>
+              </div>
+              <div className="flex items-baseline justify-center gap-2 mb-2">
+                <span className="text-4xl sm:text-6xl font-bold text-green-400">R$ 27</span>
+                <span className="text-gray-400 text-base sm:text-lg">pagamento único</span>
+              </div>
+              <p className="text-green-400 text-sm font-medium">💰 Economia de R$ 223 - Apenas hoje!</p>
             </div>
-            <p className="text-green-400 text-sm font-medium">💰 Preço promocional por tempo limitado!</p>
           </div>
 
           <ul className="space-y-4 mb-8">
             {[
-              'IA Nutricional personalizada 24/7',
-              'Planos alimentares customizados',
-              'Acompanhamento completo de progresso',
-              'Cálculos precisos de IMC, TMB e calorias',
-              'Receitas exclusivas e saudáveis',
-              'Sistema de conquistas e gamificação',
-              'Suporte prioritário via chat',
+              'IA Nutricional personalizada ilimitada',
+              'Planos alimentares customizados para seu objetivo',
+              'Acompanhamento completo de progresso e métricas',
+              'Cálculos precisos de IMC, TMB e calorias ideais',
+              'Receitas exclusivas e saudáveis para cada meta',
+              'Sistema de conquistas e gamificação motivacional',
+              'Suporte prioritário via chat integrado',
               'Atualizações constantes da plataforma',
-              'Acesso total pelo celular e computador',
-              'Garantia de 7 dias ou seu dinheiro de volta'
+              'Acesso vitalício pelo celular e computador',
+              'Garantia de 7 dias ou seu dinheiro de volta',
+              'Sem mensalidades - pagamento único',
+              'Acesso imediato após confirmação do pagamento'
             ].map((feature, index) => (
               <li key={index} className="flex items-start gap-3">
                 <div className="flex-shrink-0">
@@ -77,16 +93,54 @@ export const PricingPlans: React.FC<PricingPlansProps> = ({ onSubscriptionUpdate
 
           <button
             onClick={handlePlanSelect}
-            className="w-full py-3 sm:py-4 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 bg-gradient-to-r from-purple-400 to-purple-600 text-white hover:from-purple-500 hover:to-purple-700 transform hover:scale-105 text-base sm:text-lg"
+            className="w-full py-3 sm:py-4 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-green-600 text-white hover:from-green-500 hover:to-green-700 transform hover:scale-105 text-base sm:text-lg shadow-2xl"
           >
-            <span className="hidden sm:inline">Ativar Premium - Moedas Ilimitadas</span>
-            <span className="sm:hidden">Ativar Premium</span>
+            <span className="hidden sm:inline">🔥 GARANTIR ACESSO COMPLETO - R$ 27</span>
+            <span className="sm:hidden">🔥 GARANTIR ACESSO - R$ 27</span>
             <ExternalLink className="w-5 h-5" />
           </button>
 
           <p className="text-center text-gray-400 text-sm mt-4">
-            🔒 Pagamento 100% seguro • Cancele quando quiser
+            🔒 Pagamento 100% seguro • Acesso imediato • Sem mensalidades
           </p>
+        </div>
+      </div>
+
+      {/* Value Comparison */}
+      <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 sm:p-8 border border-white/20">
+        <div className="text-center mb-8">
+          <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Compare o Valor</h3>
+          <p className="text-gray-300 text-sm sm:text-base">Veja quanto você economiza com nossa oferta especial</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-red-500/20 border border-red-500/30 rounded-xl p-6">
+            <h4 className="text-red-300 font-bold text-lg mb-4">❌ Alternativas Tradicionais</h4>
+            <ul className="space-y-3 text-red-200 text-sm">
+              <li>• Nutricionista: R$ 150/consulta</li>
+              <li>• Personal trainer: R$ 80/sessão</li>
+              <li>• Academia: R$ 89/mês</li>
+              <li>• Apps premium: R$ 29/mês</li>
+              <li>• Cursos online: R$ 297+</li>
+              <li className="font-bold pt-2 border-t border-red-500/30">
+                💸 Total: Mais de R$ 500/mês
+              </li>
+            </ul>
+          </div>
+
+          <div className="bg-green-500/20 border border-green-500/30 rounded-xl p-6">
+            <h4 className="text-green-300 font-bold text-lg mb-4">✅ Seu Corpo Ideal</h4>
+            <ul className="space-y-3 text-green-200 text-sm">
+              <li>• IA Nutricional personalizada</li>
+              <li>• Planos alimentares ilimitados</li>
+              <li>• Acompanhamento completo</li>
+              <li>• Suporte integrado</li>
+              <li>• Acesso vitalício</li>
+              <li className="font-bold pt-2 border-t border-green-500/30 text-lg">
+                💚 Apenas R$ 27 (pagamento único)
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -119,7 +173,7 @@ export const PricingPlans: React.FC<PricingPlansProps> = ({ onSubscriptionUpdate
               <Heart className="w-6 h-6 text-white" />
             </div>
             <h4 className="text-white font-semibold mb-2">Suporte Total</h4>
-            <p className="text-gray-300 text-sm">Equipe de especialistas sempre disponível</p>
+            <p className="text-gray-300 text-sm">Plataforma completa sempre disponível</p>
           </div>
 
           <div className="text-center">
@@ -177,8 +231,8 @@ export const PricingPlans: React.FC<PricingPlansProps> = ({ onSubscriptionUpdate
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           <div className="bg-white/5 rounded-xl p-4">
-            <h4 className="text-white font-semibold mb-2">Posso cancelar a qualquer momento?</h4>
-            <p className="text-gray-300 text-sm">Sim! Você pode cancelar sua assinatura a qualquer momento sem taxas adicionais.</p>
+            <h4 className="text-white font-semibold mb-2">É realmente pagamento único?</h4>
+            <p className="text-gray-300 text-sm">Sim! Você paga apenas R$ 27 uma vez e tem acesso vitalício a todas as funcionalidades.</p>
           </div>
 
           <div className="bg-white/5 rounded-xl p-4">
@@ -220,16 +274,16 @@ export const PricingPlans: React.FC<PricingPlansProps> = ({ onSubscriptionUpdate
 
         <button
           onClick={handlePlanSelect}
-          className="bg-gradient-to-r from-purple-400 to-blue-400 text-white px-6 sm:px-12 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-xl hover:from-purple-500 hover:to-blue-500 transition-all transform hover:scale-105 flex items-center gap-2 sm:gap-3 mx-auto shadow-2xl"
+          className="bg-gradient-to-r from-green-400 to-green-600 text-white px-6 sm:px-12 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-xl hover:from-green-500 hover:to-green-700 transition-all transform hover:scale-105 flex items-center gap-2 sm:gap-3 mx-auto shadow-2xl"
         >
           <Crown className="w-6 h-6" />
-          <span className="hidden sm:inline">Ativar Moedas Ilimitadas - €15/mês</span>
-          <span className="sm:hidden">Ativar Premium - €15/mês</span>
+          <span className="hidden sm:inline">🔥 GARANTIR ACESSO COMPLETO - R$ 27</span>
+          <span className="sm:hidden">🔥 ACESSO COMPLETO - R$ 27</span>
           <ExternalLink className="w-5 h-5" />
         </button>
         
         <p className="text-gray-400 text-sm mt-4">
-          ⚡ Oferta por tempo limitado • Sem taxa de adesão • Cancele quando quiser
+          ⚡ Oferta por tempo limitado • Acesso imediato • Garantia de 7 dias
         </p>
       </div>
     </div>

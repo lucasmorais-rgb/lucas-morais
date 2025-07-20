@@ -77,7 +77,7 @@ export const AIChat: React.FC<AIChatProps> = ({ personalData, userSubscription, 
     };
   };
 
-  const canSendMessage = userSubscription.isUnlimited || userSubscription.coins > 0;
+  const canSendMessage = userSubscription.hasAccess;
 
 
   const generateAIResponse = (userMessage: string): string => {
@@ -138,14 +138,6 @@ export const AIChat: React.FC<AIChatProps> = ({ personalData, userSubscription, 
 
   const handleSendMessage = () => {
     if (!inputMessage.trim() || !canSendMessage) return;
-
-    // Deduzir moeda se não for premium
-    if (!userSubscription.isUnlimited) {
-      onSubscriptionUpdate({
-        ...userSubscription,
-        coins: Math.max(0, userSubscription.coins - 1)
-      });
-    }
 
     const userMessage: Message = {
       id: Date.now().toString(),
@@ -264,13 +256,13 @@ export const AIChat: React.FC<AIChatProps> = ({ personalData, userSubscription, 
 
         {/* No Coins Warning */}
         {!canSendMessage && (
-          <div className="bg-red-500/20 border border-red-500/30 rounded-xl p-4 mb-4">
+          <div className="bg-purple-500/20 border border-purple-500/30 rounded-xl p-4 mb-4">
             <div className="flex items-start gap-3">
-              <Lock className="w-6 h-6 text-red-400" />
+              <Lock className="w-6 h-6 text-purple-400" />
               <div className="min-w-0 flex-1">
-                <p className="text-red-300 font-medium">Suas moedas acabaram!</p>
-                <p className="text-red-400 text-sm">
-                  Faça upgrade para o Premium e tenha conversas ilimitadas com a IA
+                <p className="text-purple-300 font-medium">Acesso completo necessário!</p>
+                <p className="text-purple-400 text-sm">
+                  Desbloqueie o acesso completo por R$ 27 e tenha conversas ilimitadas com a IA
                 </p>
               </div>
             </div>
@@ -279,23 +271,17 @@ export const AIChat: React.FC<AIChatProps> = ({ personalData, userSubscription, 
 
         {/* Input Area */}
         <div className="flex flex-col sm:flex-row gap-3">
-          {!userSubscription.isUnlimited && (
-            <div className="flex items-center justify-center sm:justify-start gap-2 px-3 py-2 bg-yellow-500/20 border border-yellow-500/30 rounded-xl">
-              <Coins className="w-4 h-4 text-yellow-400" />
-              <span className="text-yellow-300 text-sm font-medium">{userSubscription.coins}</span>
-            </div>
-          )}
           <div className="flex gap-3 flex-1">
             <input
               type="text"
               value={inputMessage}
               onChange={(e) => setInputMessage(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
-              placeholder={canSendMessage ? "Digite sua pergunta sobre nutrição..." : "Sem moedas disponíveis..."}
+              placeholder={canSendMessage ? "Digite sua pergunta sobre nutrição..." : "Acesso completo necessário..."}
               disabled={!canSendMessage}
               className={`flex-1 px-4 py-3 border rounded-xl text-white placeholder-gray-400 focus:outline-none transition-all text-base ${
                 canSendMessage 
-                  ? 'bg-white/10 border-white/20 focus:ring-2 focus:ring-purple-400' 
+                  ? 'bg-white/10 border-white/20 focus:ring-2 focus:ring-green-400' 
                   : 'bg-gray-700 border-gray-600 cursor-not-allowed'
               }`}
             />
@@ -304,7 +290,7 @@ export const AIChat: React.FC<AIChatProps> = ({ personalData, userSubscription, 
               disabled={!inputMessage.trim() || isTyping || !canSendMessage}
               className={`px-4 py-3 rounded-xl text-white font-medium transition-all ${
                 canSendMessage && inputMessage.trim() && !isTyping
-                  ? 'bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600'
+                  ? 'bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600'
                   : 'bg-gray-600 cursor-not-allowed opacity-50'
               }`}
             >

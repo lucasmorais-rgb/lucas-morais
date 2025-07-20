@@ -15,22 +15,12 @@ export const MealPlan: React.FC<MealPlanProps> = ({ personalData, userSubscripti
   
   const [selectedMeal, setSelectedMeal] = useState<Meal | null>(null);
 
-  const canViewMealDetails = userSubscription.isUnlimited || userSubscription.coins > 0;
+  const canViewMealDetails = userSubscription.hasAccess;
 
   const handleMealClick = (meal: Meal) => {
     if (!canViewMealDetails) return;
     
     setSelectedMeal(meal);
-    
-    // Deduzir moeda após mostrar o modal se não for premium
-    if (!userSubscription.isUnlimited) {
-      setTimeout(() => {
-        onSubscriptionUpdate({
-          ...userSubscription,
-          coins: Math.max(0, userSubscription.coins - 1)
-        });
-      }, 100);
-    }
   };
 
 
@@ -95,10 +85,10 @@ export const MealPlan: React.FC<MealPlanProps> = ({ personalData, userSubscripti
       </div>
       
       {!canViewMealDetails && (
-        <div className="mt-4 p-3 bg-red-500/20 border border-red-500/30 rounded-xl">
+        <div className="mt-4 p-3 bg-purple-500/20 border border-purple-500/30 rounded-xl">
           <div className="flex items-center gap-2">
             <Lock className="w-4 h-4 text-red-400" />
-            <span className="text-red-300 text-sm">Sem moedas para ver detalhes</span>
+            <span className="text-purple-300 text-sm">Acesso completo necessário</span>
           </div>
         </div>
       )}
@@ -142,12 +132,6 @@ export const MealPlan: React.FC<MealPlanProps> = ({ personalData, userSubscripti
         <div className="flex items-center gap-3 mb-4">
           <AlertTriangle className="w-6 h-6 text-red-400" />
           <h3 className="text-base sm:text-lg font-semibold text-white">Alimentos a Evitar</h3>
-          {!userSubscription.isUnlimited && (
-            <div className="flex items-center gap-1 ml-auto">
-              <Coins className="w-4 h-4 text-yellow-400" />
-              <span className="text-yellow-300 text-sm">{userSubscription.coins}</span>
-            </div>
-          )}
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">

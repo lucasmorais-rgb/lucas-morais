@@ -62,65 +62,48 @@ export const Dashboard: React.FC<DashboardProps> = ({
             <p className="text-gray-300 text-sm">{t('transformYourLife')}</p>
           </div>
           
-          {/* Coins Display */}
+          {/* Access Status */}
           <div className="flex items-center justify-between mt-4 pt-4 border-t border-white/20">
             <div className="flex items-center gap-3 min-w-0 flex-1">
-              <div className="p-2 bg-yellow-500 rounded-xl">
-                <Coins className="w-5 h-5 text-white" />
+              <div className="p-2 bg-green-500 rounded-xl">
+                <Crown className="w-5 h-5 text-white" />
               </div>
               <div className="min-w-0 flex-1">
                 <p className="text-white font-medium">
-                  {userSubscription.isUnlimited ? t('unlimitedCoins') : `${userSubscription.coins} ${t('coins')}`}
+                  {userSubscription.hasAccess ? 'Acesso Completo Ativo' : 'Acesso Limitado'}
                 </p>
                 <p className="text-gray-300 text-sm truncate">
-                  {userSubscription.isPremium ? t('premiumPlanActive') : t('freeTrial')}
+                  {userSubscription.hasAccess ? 'Aproveite todas as funcionalidades' : 'Desbloqueie o potencial completo'}
                 </p>
               </div>
             </div>
             
-            {!userSubscription.isPremium && userSubscription.coins <= 5 && (
+            {!userSubscription.hasAccess && (
               <button
                 onClick={() => setActiveTab('plans')}
-                className="px-3 sm:px-4 py-2 bg-gradient-to-r from-purple-400 to-blue-400 rounded-xl text-white text-xs sm:text-sm hover:from-purple-500 hover:to-blue-500 transition-all whitespace-nowrap flex-shrink-0"
+                className="px-3 sm:px-4 py-2 bg-gradient-to-r from-green-400 to-green-600 rounded-xl text-white text-xs sm:text-sm hover:from-green-500 hover:to-green-700 transition-all whitespace-nowrap flex-shrink-0"
               >
-                <span className="hidden sm:inline">{t('upgradePremium')}</span>
-                <span className="sm:hidden">{t('premium')}</span>
+                <span className="hidden sm:inline">Desbloquear Acesso</span>
+                <span className="sm:hidden">Desbloquear</span>
               </button>
             )}
           </div>
         </div>
         
-        {/* Low Coins Warning */}
-        {!userSubscription.isPremium && userSubscription.coins <= 5 && userSubscription.coins > 0 && (
-          <div className="bg-yellow-500/20 border border-yellow-500/30 rounded-2xl p-4 mb-4 sm:mb-6">
-            <div className="flex items-center gap-3">
-              <Coins className="w-6 h-6 text-yellow-400" />
-              <div className="min-w-0 flex-1">
-                <p className="text-yellow-300 font-medium">
-                  {t('coinsRunningOut')} ({userSubscription.coins} {t('remaining')})
-                </p>
-                <p className="text-yellow-400 text-sm break-words">
-                  {t('upgradeForUnlimited')}
-                </p>
-              </div>
-            </div>
-          </div>
-        )}
-        
-        {/* No Coins Warning */}
-        {!userSubscription.isPremium && userSubscription.coins === 0 && (
-          <div className="bg-red-500/20 border border-red-500/30 rounded-2xl p-4 sm:p-6 mb-4 sm:mb-6">
+        {/* Access Required Warning */}
+        {!userSubscription.hasAccess && (
+          <div className="bg-purple-500/20 border border-purple-500/30 rounded-2xl p-4 sm:p-6 mb-4 sm:mb-6">
             <div className="text-center">
-              <Coins className="w-12 h-12 text-red-400 mx-auto mb-4" />
-              <h3 className="text-lg sm:text-xl font-bold text-white mb-2">{t('coinsFinished')}</h3>
-              <p className="text-red-300 mb-4 text-sm sm:text-base">
-                {t('upgradeToUseFunctionalities')}
+              <Crown className="w-12 h-12 text-purple-400 mx-auto mb-4" />
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-2">Desbloqueie o Acesso Completo</h3>
+              <p className="text-purple-300 mb-4 text-sm sm:text-base">
+                Para usar todas as funcionalidades da plataforma, adquira o acesso completo por apenas R$ 27
               </p>
               <button
                 onClick={() => setActiveTab('plans')}
-                className="px-4 sm:px-6 py-3 bg-gradient-to-r from-purple-400 to-blue-400 rounded-xl text-white font-semibold hover:from-purple-500 hover:to-blue-500 transition-all text-sm sm:text-base"
+                className="px-4 sm:px-6 py-3 bg-gradient-to-r from-green-400 to-green-600 rounded-xl text-white font-semibold hover:from-green-500 hover:to-green-700 transition-all text-sm sm:text-base"
               >
-                {t('viewPremiumPlans')}
+                Ver Oferta Especial - R$ 27
               </button>
             </div>
           </div>
@@ -152,12 +135,11 @@ export const Dashboard: React.FC<DashboardProps> = ({
         {/* Content */}
         <div className="animate-fade-in">
           {activeTab === 'metrics' && <HealthMetrics personalData={personalData} />}
-          {activeTab === 'meals' && <MealPlan personalData={personalData} userSubscription={userSubscription} onSubscriptionUpdate={onSubscriptionUpdate} />}
-          {activeTab === 'chat' && <AIChat personalData={personalData} userSubscription={userSubscription} onSubscriptionUpdate={onSubscriptionUpdate} />}
+          {activeTab === 'meals' && (userSubscription.hasAccess ? <MealPlan personalData={personalData} userSubscription={userSubscription} onSubscriptionUpdate={onSubscriptionUpdate} /> : <AccessRequired onUpgrade={() => setActiveTab('plans')} />)}
+          {activeTab === 'chat' && (userSubscription.hasAccess ? <AIChat personalData={personalData} userSubscription={userSubscription} onSubscriptionUpdate={onSubscriptionUpdate} /> : <AccessRequired onUpgrade={() => setActiveTab('plans')} />)}
           {activeTab === 'progress' && <ProgressTracker personalData={personalData} />}
           {activeTab === 'plans' && <PricingPlans onSubscriptionUpdate={onSubscriptionUpdate} />}
         </div>
       </div>
     </div>
   );
-};
