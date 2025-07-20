@@ -15,6 +15,22 @@ interface DashboardProps {
   onSubscriptionUpdate: (subscription: UserSubscription) => void;
 }
 
+const AccessRequired: React.FC<{ onUpgrade: () => void }> = ({ onUpgrade }) => (
+  <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 text-center">
+    <Crown className="w-16 h-16 text-purple-400 mx-auto mb-4" />
+    <h3 className="text-xl font-bold text-white mb-2">Acesso Premium Necessário</h3>
+    <p className="text-gray-300 mb-6">
+      Esta funcionalidade está disponível apenas para usuários premium.
+    </p>
+    <button
+      onClick={onUpgrade}
+      className="px-6 py-3 bg-gradient-to-r from-green-400 to-green-600 rounded-xl text-white font-semibold hover:from-green-500 hover:to-green-700 transition-all"
+    >
+      Fazer Upgrade - R$ 27
+    </button>
+  </div>
+);
+
 export const Dashboard: React.FC<DashboardProps> = ({ 
   personalData, 
   userSubscription, 
@@ -143,3 +159,4 @@ export const Dashboard: React.FC<DashboardProps> = ({
       </div>
     </div>
   );
+};
