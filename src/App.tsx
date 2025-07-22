@@ -2,10 +2,19 @@ import React, { useState } from 'react';
 import { PersonalData, UserSubscription } from './types/PersonalData';
 import { WelcomeScreen } from './components/WelcomeScreen';
 import { Dashboard } from './components/Dashboard';
+import { AdminArea } from './components/AdminArea';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { useLocalStorage } from './hooks/useLocalStorage';
 
 function App() {
+  // Verificar se está na rota admin
+  const isAdminRoute = window.location.pathname === '/admin';
+  
+  // Se for rota admin, mostrar área administrativa
+  if (isAdminRoute) {
+    return <AdminArea />;
+  }
+  
   // Estados do app
   const [personalData, setPersonalData] = useLocalStorage<PersonalData | null>('personalData', null);
   const [userSubscription, setUserSubscription] = useLocalStorage<UserSubscription>('userSubscription', {
