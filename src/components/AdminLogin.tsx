@@ -93,12 +93,6 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin }) => {
               )}
             </button>
           </form>
-
-          <div className="mt-6 p-4 bg-blue-500/20 border border-blue-500/30 rounded-xl">
-            <p className="text-blue-300 text-sm">
-              <strong>💡 Dica:</strong> Para demonstração, a senha é: <code className="bg-blue-500/30 px-2 py-1 rounded">admin123</code>
-            </p>
-          </div>
         </div>
       </div>
     </div>
