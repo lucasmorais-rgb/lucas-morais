@@ -33,69 +33,8 @@ interface AdminDashboardProps {
 }
 
 export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
-  // Dados simulados de usuários (em produção, viriam do banco de dados)
-  const [users] = useState<User[]>([
-    {
-      id: '1',
-      name: 'Maria Silva',
-      email: 'maria.silva@email.com',
-      phone: '(11) 99999-1234',
-      registrationDate: '2024-01-15',
-      hasAccess: true,
-      lastActivity: '2024-01-20',
-      goal: 'lose_weight',
-      age: 32,
-      weight: 68
-    },
-    {
-      id: '2',
-      name: 'João Santos',
-      email: 'joao.santos@email.com',
-      phone: '(11) 98888-5678',
-      registrationDate: '2024-01-18',
-      hasAccess: false,
-      lastActivity: '2024-01-19',
-      goal: 'gain_muscle',
-      age: 28,
-      weight: 75
-    },
-    {
-      id: '3',
-      name: 'Ana Costa',
-      email: 'ana.costa@email.com',
-      phone: '(11) 97777-9012',
-      registrationDate: '2024-01-20',
-      hasAccess: true,
-      lastActivity: '2024-01-21',
-      goal: 'lose_fat_maintain_muscle',
-      age: 35,
-      weight: 62
-    },
-    {
-      id: '4',
-      name: 'Pedro Oliveira',
-      email: 'pedro.oliveira@email.com',
-      phone: '(11) 96666-3456',
-      registrationDate: '2024-01-22',
-      hasAccess: false,
-      lastActivity: '2024-01-22',
-      goal: 'maintain_weight',
-      age: 41,
-      weight: 80
-    },
-    {
-      id: '5',
-      name: 'Carla Mendes',
-      email: 'carla.mendes@email.com',
-      phone: '(11) 95555-7890',
-      registrationDate: '2024-01-25',
-      hasAccess: true,
-      lastActivity: '2024-01-26',
-      goal: 'lose_weight',
-      age: 29,
-      weight: 58
-    }
-  ]);
+  // Em produção, os dados virão do banco de dados
+  const [users] = useState<User[]>([]);
 
   const [searchTerm, setSearchTerm] = useState('');
   const [dateFilter, setDateFilter] = useState('');
