@@ -15,18 +15,20 @@ interface DashboardProps {
   onSubscriptionUpdate: (subscription: UserSubscription) => void;
 }
 
+// Componente para mostrar quando acesso é necessário
 const AccessRequired: React.FC<{ onUpgrade: () => void }> = ({ onUpgrade }) => (
-  <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 text-center">
-    <Crown className="w-16 h-16 text-purple-400 mx-auto mb-4" />
-    <h3 className="text-xl font-bold text-white mb-2">Acesso Premium Necessário</h3>
-    <p className="text-gray-300 mb-6">
-      Esta funcionalidade está disponível apenas para usuários premium.
+  <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 text-center">
+    <Crown className="w-16 h-16 text-purple-400 mx-auto mb-6" />
+    <h3 className="text-2xl font-bold text-white mb-4">Acesso Completo Necessário</h3>
+    <p className="text-gray-300 mb-6 max-w-md mx-auto">
+      Esta funcionalidade está disponível apenas para usuários com acesso completo. 
+      Desbloqueie agora por apenas R$ 27!
     </p>
     <button
       onClick={onUpgrade}
-      className="px-6 py-3 bg-gradient-to-r from-green-400 to-green-600 rounded-xl text-white font-semibold hover:from-green-500 hover:to-green-700 transition-all"
+      className="px-8 py-3 bg-gradient-to-r from-green-400 to-green-600 rounded-xl text-white font-semibold hover:from-green-500 hover:to-green-700 transition-all"
     >
-      Fazer Upgrade - R$ 27
+      Desbloquear por R$ 27
     </button>
   </div>
 );

@@ -8,7 +8,7 @@ import { useLocalStorage } from './hooks/useLocalStorage';
 
 function App() {
   // Verificar se está na rota admin
-  const isAdminRoute = window.location.pathname === '/admin';
+  const isAdminRoute = window.location.pathname.includes('/admin');
   
   // Se for rota admin, mostrar área administrativa
   if (isAdminRoute) {

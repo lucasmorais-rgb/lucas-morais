@@ -77,7 +77,11 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onDataSubmit }) =>
           {/* Link discreto para área admin */}
           <div className="mt-4">
             <a 
-              href="/admin" 
+              href="#" 
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.pathname = '/admin';
+              }}
               className="text-gray-500 hover:text-gray-400 text-xs transition-colors"
               style={{ fontSize: '10px' }}
             >
