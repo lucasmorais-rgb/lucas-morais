@@ -260,9 +260,14 @@ export const AIChat: React.FC<AIChatProps> = ({ personalData, userSubscription, 
             <div className="flex items-start gap-3">
               <Lock className="w-6 h-6 text-purple-400" />
               <div className="min-w-0 flex-1">
-                <p className="text-purple-300 font-medium">Acesso completo necessário!</p>
+                <p className="text-purple-300 font-medium">
+                  {userSubscription.hasUsedFreeTrial ? 'Acesso completo necessário!' : 'Teste grátis disponível!'}
+                </p>
                 <p className="text-purple-400 text-sm">
-                  Desbloqueie o acesso completo por R$ 27 e tenha conversas ilimitadas com a IA
+                  {userSubscription.hasUsedFreeTrial 
+                    ? 'Desbloqueie o acesso completo por R$ 27 e tenha conversas ilimitadas com a IA'
+                    : 'Experimente gratuitamente todas as funcionalidades antes de decidir!'
+                  }
                 </p>
               </div>
             </div>

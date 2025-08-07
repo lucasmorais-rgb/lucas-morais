@@ -16,20 +16,38 @@ interface DashboardProps {
 }
 
 // Componente para mostrar quando acesso é necessário
-const AccessRequired: React.FC<{ onUpgrade: () => void }> = ({ onUpgrade }) => (
+const AccessRequired: React.FC<{ 
+  onUpgrade: () => void; 
+  onStartFreeTrial: () => void; 
+  hasUsedFreeTrial: boolean; 
+}> = ({ onUpgrade, onStartFreeTrial, hasUsedFreeTrial }) => (
   <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 text-center">
     <Crown className="w-16 h-16 text-purple-400 mx-auto mb-6" />
-    <h3 className="text-2xl font-bold text-white mb-4">Acesso Completo Necessário</h3>
+    <h3 className="text-2xl font-bold text-white mb-4">
+      {hasUsedFreeTrial ? 'Acesso Completo Necessário' : 'Experimente Grátis!'}
+    </h3>
     <p className="text-gray-300 mb-6 max-w-md mx-auto">
-      Esta funcionalidade está disponível apenas para usuários com acesso completo. 
-      Desbloqueie agora por apenas R$ 27!
+      {hasUsedFreeTrial 
+        ? 'Você já usou seu teste grátis. Para continuar usando todas as funcionalidades, adquira o acesso completo por apenas R$ 27!'
+        : 'Teste todas as funcionalidades gratuitamente por tempo limitado! Depois, continue com acesso completo por apenas R$ 27.'
+      }
     </p>
-    <button
-      onClick={onUpgrade}
-      className="px-8 py-3 bg-gradient-to-r from-green-400 to-green-600 rounded-xl text-white font-semibold hover:from-green-500 hover:to-green-700 transition-all"
-    >
-      Desbloquear por R$ 27
-    </button>
+    <div className="flex flex-col sm:flex-row gap-3 justify-center">
+      {!hasUsedFreeTrial && (
+        <button
+          onClick={onStartFreeTrial}
+          className="px-6 py-3 bg-gradient-to-r from-blue-400 to-purple-400 rounded-xl text-white font-semibold hover:from-blue-500 hover:to-purple-500 transition-all"
+        >
+          🎁 Começar Teste Grátis
+        </button>
+      )}
+      <button
+        onClick={onUpgrade}
+        className="px-6 py-3 bg-gradient-to-r from-green-400 to-green-600 rounded-xl text-white font-semibold hover:from-green-500 hover:to-green-700 transition-all"
+      >
+        {hasUsedFreeTrial ? 'Desbloquear por R$ 27' : 'Comprar Acesso Completo - R$ 27'}
+      </button>
+    </div>
   </div>
 );
 
@@ -41,6 +59,13 @@ export const Dashboard: React.FC<DashboardProps> = ({
 }) => {
   const [activeTab, setActiveTab] = useState<'metrics' | 'meals' | 'chat' | 'progress' | 'plans'>('metrics');
   const { t } = useLanguage();
+
+  const handleStartFreeTrial = () => {
+    onSubscriptionUpdate({
+      hasAccess: true,
+      hasUsedFreeTrial: true
+    });
+  };
 
   const tabs = [
     { id: 'metrics', label: t('metrics'), icon: Activity },
@@ -153,8 +178,8 @@ export const Dashboard: React.FC<DashboardProps> = ({
         {/* Content */}
         <div className="animate-fade-in">
           {activeTab === 'metrics' && <HealthMetrics personalData={personalData} />}
-          {activeTab === 'meals' && (userSubscription.hasAccess ? <MealPlan personalData={personalData} userSubscription={userSubscription} onSubscriptionUpdate={onSubscriptionUpdate} /> : <AccessRequired onUpgrade={() => setActiveTab('plans')} />)}
-          {activeTab === 'chat' && (userSubscription.hasAccess ? <AIChat personalData={personalData} userSubscription={userSubscription} onSubscriptionUpdate={onSubscriptionUpdate} /> : <AccessRequired onUpgrade={() => setActiveTab('plans')} />)}
+          {activeTab === 'meals' && (userSubscription.hasAccess ? <MealPlan personalData={personalData} userSubscription={userSubscription} onSubscriptionUpdate={onSubscriptionUpdate} /> : <AccessRequired onUpgrade={() => setActiveTab('plans')} onStartFreeTrial={handleStartFreeTrial} hasUsedFreeTrial={userSubscription.hasUsedFreeTrial} />)}
+          {activeTab === 'chat' && (userSubscription.hasAccess ? <AIChat personalData={personalData} userSubscription={userSubscription} onSubscriptionUpdate={onSubscriptionUpdate} /> : <AccessRequired onUpgrade={() => setActiveTab('plans')} onStartFreeTrial={handleStartFreeTrial} hasUsedFreeTrial={userSubscription.hasUsedFreeTrial} />)}
           {activeTab === 'progress' && <ProgressTracker personalData={personalData} />}
           {activeTab === 'plans' && <PricingPlans onSubscriptionUpdate={onSubscriptionUpdate} />}
         </div>

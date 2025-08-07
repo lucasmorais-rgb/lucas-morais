@@ -19,4 +19,5 @@ export interface HealthMetrics {
 
 export interface UserSubscription {
   hasAccess: boolean;
+  hasUsedFreeTrial: boolean;
 }
