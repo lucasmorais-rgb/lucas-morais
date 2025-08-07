@@ -21,11 +21,15 @@ export const PricingPlans: React.FC<PricingPlansProps> = ({ onSubscriptionUpdate
       <div className="text-center">
         <div className="flex justify-center items-center gap-2 mb-4">
           <Crown className="w-8 h-8 text-purple-400" />
-          <h2 className="text-2xl sm:text-3xl font-bold text-white">Oferta Especial Limitada</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-white">
+            {onSubscriptionUpdate ? 'Oferta Especial Limitada' : 'Acesso Completo'}
+          </h2>
         </div>
         <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto px-4">
-          Acesso completo ao Seu Corpo Ideal com desconto imperdível! 
-          Transforme sua vida com nossa plataforma completa de saúde e bem-estar.
+          {onSubscriptionUpdate 
+            ? 'Acesso completo ao Seu Corpo Ideal com desconto imperdível! Transforme sua vida com nossa plataforma completa de saúde e bem-estar.'
+            : 'Transforme sua vida com nossa plataforma completa de saúde e bem-estar.'
+          }
         </p>
       </div>
 
@@ -53,6 +57,15 @@ export const PricingPlans: React.FC<PricingPlansProps> = ({ onSubscriptionUpdate
             </div>
             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">Acesso Completo</h3>
             <p className="text-gray-300 mb-6 text-sm sm:text-base">Plataforma completa de transformação corporal</p>
+            
+            <div className="bg-green-500/20 border border-green-500/30 rounded-xl p-4 mb-6">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <span className="text-green-300 font-bold">🎁 TESTE GRÁTIS INCLUÍDO!</span>
+              </div>
+              <p className="text-green-200 text-sm">
+                Experimente todas as funcionalidades gratuitamente antes de decidir
+              </p>
+            </div>
             
             <div className="mb-4">
               <div className="flex items-center justify-center gap-2 mb-2">
