@@ -24,10 +24,14 @@ export const PricingPlans: React.FC<PricingPlansProps> = ({ onSubscriptionUpdate
           <h2 className="text-2xl sm:text-3xl font-bold text-white">
             {onSubscriptionUpdate ? 'Oferta Especial Limitada' : 'Acesso Completo'}
           </h2>
+            {onSubscriptionUpdate ? 'Oferta Especial Limitada' : 'Acesso Completo'}
+          </h2>
         </div>
         <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto px-4">
           {onSubscriptionUpdate 
             ? 'Acesso completo ao Seu Corpo Ideal com desconto imperdível! Transforme sua vida com nossa plataforma completa de saúde e bem-estar.'
+            : 'Transforme sua vida com nossa plataforma completa de saúde e bem-estar.'
+          }
             : 'Transforme sua vida com nossa plataforma completa de saúde e bem-estar.'
           }
         </p>
@@ -37,7 +41,7 @@ export const PricingPlans: React.FC<PricingPlansProps> = ({ onSubscriptionUpdate
       <div className="bg-gradient-to-r from-red-500 to-pink-500 text-white py-3 px-6 rounded-2xl text-center">
         <div className="flex items-center justify-center gap-2 text-sm font-medium">
           <Clock className="w-4 h-4" />
-          <span>⚡ OFERTA RELÂMPAGO - Apenas hoje com 89% de desconto!</span>
+          <span>⚡ OFERTA ESPECIAL - 89% de desconto por tempo limitado!</span>
         </div>
       </div>
 
@@ -67,6 +71,15 @@ export const PricingPlans: React.FC<PricingPlansProps> = ({ onSubscriptionUpdate
               </p>
             </div>
             
+            <div className="bg-green-500/20 border border-green-500/30 rounded-xl p-4 mb-6">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <span className="text-green-300 font-bold">🎁 TESTE GRÁTIS INCLUÍDO!</span>
+              </div>
+              <p className="text-green-200 text-sm">
+                Experimente todas as funcionalidades gratuitamente antes de decidir
+              </p>
+            </div>
+            
             <div className="mb-4">
               <div className="flex items-center justify-center gap-2 mb-2">
                 <span className="text-lg text-gray-400 line-through">De R$ 250</span>
@@ -76,7 +89,7 @@ export const PricingPlans: React.FC<PricingPlansProps> = ({ onSubscriptionUpdate
                 <span className="text-4xl sm:text-6xl font-bold text-green-400">R$ 27</span>
                 <span className="text-gray-400 text-base sm:text-lg">pagamento único</span>
               </div>
-              <p className="text-green-400 text-sm font-medium">💰 Economia de R$ 223 - Apenas hoje!</p>
+              <p className="text-green-400 text-sm font-medium">💰 Economia de R$ 223 - Oferta limitada!</p>
             </div>
           </div>
 
@@ -161,7 +174,7 @@ export const PricingPlans: React.FC<PricingPlansProps> = ({ onSubscriptionUpdate
       <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 sm:p-8 border border-white/20">
         <div className="text-center mb-8">
           <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Por que escolher o Seu Corpo Ideal?</h3>
-          <p className="text-gray-300 text-sm sm:text-base">Mais de 10.000 pessoas já transformaram suas vidas conosco</p>
+          <p className="text-gray-300 text-sm sm:text-base">Milhares de pessoas já transformaram suas vidas conosco</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
@@ -272,7 +285,7 @@ export const PricingPlans: React.FC<PricingPlansProps> = ({ onSubscriptionUpdate
         
         <div className="flex items-center justify-center gap-2 sm:gap-4 mb-6">
           <div className="text-center">
-            <div className="text-xl sm:text-2xl font-bold text-green-400">10.000+</div>
+            <div className="text-xl sm:text-2xl font-bold text-green-400">5.000+</div>
             <div className="text-gray-300 text-sm">Usuários ativos</div>
           </div>
           <div className="text-center">
@@ -296,7 +309,7 @@ export const PricingPlans: React.FC<PricingPlansProps> = ({ onSubscriptionUpdate
         </button>
         
         <p className="text-gray-400 text-sm mt-4">
-          ⚡ Oferta por tempo limitado • Acesso imediato • Garantia de 7 dias
+          ⚡ Oferta especial • Acesso imediato • Garantia de 7 dias
         </p>
       </div>
     </div>

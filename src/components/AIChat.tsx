@@ -282,7 +282,7 @@ export const AIChat: React.FC<AIChatProps> = ({ personalData, userSubscription, 
               value={inputMessage}
               onChange={(e) => setInputMessage(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
-              placeholder={canSendMessage ? "Digite sua pergunta sobre nutrição..." : "Acesso completo necessário..."}
+              placeholder={canSendMessage ? "Digite sua pergunta sobre nutrição..." : "Teste grátis ou acesso completo necessário..."}
               disabled={!canSendMessage}
               className={`flex-1 px-4 py-3 border rounded-xl text-white placeholder-gray-400 focus:outline-none transition-all text-base ${
                 canSendMessage 

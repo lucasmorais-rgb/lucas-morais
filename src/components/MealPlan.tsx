@@ -87,8 +87,10 @@ export const MealPlan: React.FC<MealPlanProps> = ({ personalData, userSubscripti
       {!canViewMealDetails && (
         <div className="mt-4 p-3 bg-purple-500/20 border border-purple-500/30 rounded-xl">
           <div className="flex items-center gap-2">
-            <Lock className="w-4 h-4 text-red-400" />
+            <Lock className="w-4 h-4 text-purple-400" />
             <span className="text-purple-300 text-sm">
+              {userSubscription.hasUsedFreeTrial ? 'Acesso completo necessário' : 'Teste grátis disponível'}
+            </span>
               {userSubscription.hasUsedFreeTrial ? 'Acesso completo necessário' : 'Teste grátis disponível'}
             </span>
           </div>

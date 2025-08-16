@@ -72,12 +72,12 @@ const translations = {
     // Dashboard
     hello: 'Olá',
     transformYourLife: 'Vamos transformar sua vida hoje',
-    unlimitedCoins: 'Moedas Ilimitadas',
-    coins: 'Moedas',
-    premiumPlanActive: 'Plano Premium Ativo',
+    unlimitedCoins: 'Acesso Ilimitado',
+    coins: 'Acesso',
+    premiumPlanActive: 'Acesso Completo Ativo',
     freeTrial: 'Teste Grátis',
-    upgradePremium: 'Upgrade Premium',
-    premium: 'Premium',
+    upgradePremium: 'Fazer Upgrade',
+    premium: 'Completo',
     
     // Tabs
     metrics: 'Métricas',
@@ -114,18 +114,18 @@ const translations = {
     achievements: 'Conquistas',
     
     // Pricing
-    premiumPlan: 'Plano Premium',
+    premiumPlan: 'Acesso Completo',
     specialOffer: 'Oferta Especial',
     month: 'mês',
-    activatePremium: 'Ativar Premium',
+    activatePremium: 'Ativar Acesso Completo',
     
     // Dashboard warnings
-    coinsRunningOut: 'Suas moedas estão acabando!',
+    coinsRunningOut: 'Seu acesso está limitado!',
     remaining: 'restantes',
-    upgradeForUnlimited: 'Faça upgrade para o Premium e tenha acesso ilimitado por apenas €15/mês',
-    coinsFinished: 'Suas moedas acabaram!',
-    upgradeToUseFunctionalities: 'Para continuar usando todas as funcionalidades, faça upgrade para o Plano Premium',
-    viewPremiumPlans: 'Ver Planos Premium',
+    upgradeForUnlimited: 'Faça upgrade para o Acesso Completo e tenha funcionalidades ilimitadas por apenas R$ 27',
+    coinsFinished: 'Seu teste grátis acabou!',
+    upgradeToUseFunctionalities: 'Para continuar usando todas as funcionalidades, adquira o Acesso Completo',
+    viewPremiumPlans: 'Ver Planos de Acesso',
     
     // Health Metrics additional
     underweight: 'Abaixo do peso',
