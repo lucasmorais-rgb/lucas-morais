@@ -29,10 +29,7 @@ export const PricingPlans: React.FC<PricingPlansProps> = ({ onSubscriptionUpdate
         <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto px-4">
           {onSubscriptionUpdate 
             ? 'Acesso completo ao Seu Corpo Ideal com desconto imperdível! Transforme sua vida com nossa plataforma completa de saúde e bem-estar.'
-            : 'Transforme sua vida com nossa plataforma completa de saúde e bem-estar.'
-          }
-            : 'Transforme sua vida com nossa plataforma completa de saúde e bem-estar.'
-          }
+            : 'Transforme sua vida com nossa plataforma completa de saúde e bem-estar.'}
         </p>
       </div>
 

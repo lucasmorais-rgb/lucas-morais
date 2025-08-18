@@ -90,7 +90,6 @@ export const MealPlan: React.FC<MealPlanProps> = ({ personalData, userSubscripti
             <Lock className="w-4 h-4 text-purple-400" />
             <span className="text-purple-300 text-sm">
             </span>
-            </span>
           </div>
         </div>
       )}
