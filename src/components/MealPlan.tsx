@@ -89,9 +89,7 @@ export const MealPlan: React.FC<MealPlanProps> = ({ personalData, userSubscripti
           <div className="flex items-center gap-2">
             <Lock className="w-4 h-4 text-purple-400" />
             <span className="text-purple-300 text-sm">
-              {userSubscription.hasUsedFreeTrial ? 'Acesso completo necessário' : 'Teste grátis disponível'}
             </span>
-              {userSubscription.hasUsedFreeTrial ? 'Acesso completo necessário' : 'Teste grátis disponível'}
             </span>
           </div>
         </div>

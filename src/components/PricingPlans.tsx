@@ -23,7 +23,6 @@ export const PricingPlans: React.FC<PricingPlansProps> = ({ onSubscriptionUpdate
           <Crown className="w-8 h-8 text-purple-400" />
           <h2 className="text-2xl sm:text-3xl font-bold text-white">
             {onSubscriptionUpdate ? 'Oferta Especial Limitada' : 'Acesso Completo'}
-          </h2>
             {onSubscriptionUpdate ? 'Oferta Especial Limitada' : 'Acesso Completo'}
           </h2>
         </div>
