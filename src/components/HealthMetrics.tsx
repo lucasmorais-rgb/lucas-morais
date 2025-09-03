@@ -1,6 +1,7 @@
 import React from 'react';
 import { PersonalData, HealthMetrics as HealthMetricsType } from '../types/PersonalData';
 import { useLanguage } from '../contexts/LanguageContext';
+import { BodyIllustration3D } from './BodyIllustration3D';
 import { Calculator, Target, Zap, Heart, TrendingUp, Scale } from 'lucide-react';
 
 interface HealthMetricsProps {
@@ -115,6 +116,9 @@ export const HealthMetrics: React.FC<HealthMetricsProps> = ({ personalData }) =>
 
   return (
     <div className="space-y-6">
+      {/* 3D Body Illustration */}
+      <BodyIllustration3D personalData={personalData} />
+
       {/* Overview Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         <MetricCard
