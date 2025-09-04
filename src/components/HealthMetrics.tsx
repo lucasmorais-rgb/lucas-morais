@@ -2,7 +2,6 @@ import React from 'react';
 import { PersonalData, HealthMetrics as HealthMetricsType } from '../types/PersonalData';
 import { useLanguage } from '../contexts/LanguageContext';
 import { BodyIllustration3D } from './BodyIllustration3D';
-import { BodyIllustration3D } from './BodyIllustration3D';
 import { Calculator, Target, Zap, Heart, TrendingUp, Scale } from 'lucide-react';
 
 interface HealthMetricsProps {
