@@ -167,12 +167,12 @@ export const BodyIllustration3D: React.FC<BodyIllustration3DProps> = ({ personal
             />
             
             {/* Corpo principal */}
-            <g style={{ transform: `scale(${bodyHeight}, ${bodyHeight})` }}>
+            <g>
               {/* Cabeça */}
               <circle 
                 cx="50" 
-                cy="15" 
-                r="8" 
+                cy="12" 
+                r="6" 
                 fill={skinColor}
                 stroke="rgba(0,0,0,0.1)" 
                 strokeWidth="0.5"
@@ -181,28 +181,66 @@ export const BodyIllustration3D: React.FC<BodyIllustration3DProps> = ({ personal
               {/* Cabelo */}
               <path 
                 d={personalData.gender === 'male' 
-                  ? "M42 10 Q50 5 58 10 Q58 12 50 12 Q42 12 42 10" 
-                  : "M40 8 Q50 3 60 8 Q60 15 50 15 Q40 15 40 8"
+                  ? "M44 8 Q50 6 56 8 Q56 10 50 10 Q44 10 44 8" 
+                  : "M42 6 Q50 4 58 6 Q58 12 50 12 Q42 12 42 6"
                 }
                 fill="#4A4A4A"
               />
               
               {/* Pescoço */}
               <rect 
-                x="47" 
-                y="23" 
-                width="6" 
-                height="8" 
+                x="48" 
+                y="18" 
+                width="4" 
+                height="6" 
                 fill={skinColor}
                 rx="3"
               />
               
-              {/* Tronco */}
+              {/* Tronco - Torso realista */}
+              <path
+                d={`M42 24 
+                    Q38 28 38 35
+                    Q38 45 40 55
+                    Q42 65 45 70
+                    L55 70
+                    Q58 65 60 55
+                    Q62 45 62 35
+                    Q62 28 58 24
+                    Q54 22 50 22
+                    Q46 22 42 24 Z`}
+                fill={skinColor}
+                stroke="rgba(0,0,0,0.1)" 
+                strokeWidth="0.5"
+                style={{ transform: `scaleX(${bodyWidth}) scaleY(${bodyHeight})`, transformOrigin: '50px 46px' }}
+              />
+              
+              {/* Ombros */}
+              <ellipse 
+                cx="35" 
+                cy="26" 
+                rx="4" 
+                ry="3" 
+                fill={skinColor}
+                stroke="rgba(0,0,0,0.1)" 
+                strokeWidth="0.5"
+              />
+              <ellipse 
+                cx="65" 
+                cy="26" 
+                rx="4" 
+                ry="3" 
+                fill={skinColor}
+                stroke="rgba(0,0,0,0.1)" 
+                strokeWidth="0.5"
+              />
+              
+              {/* Cintura */}
               <ellipse 
                 cx="50" 
-                cy="55" 
-                rx={12 * bodyWidth * muscleDef} 
-                ry="25" 
+                cy="70" 
+                rx={8 * bodyWidth} 
+                ry="4" 
                 fill={skinColor}
                 stroke="rgba(0,0,0,0.1)" 
                 strokeWidth="0.5"
@@ -212,131 +250,140 @@ export const BodyIllustration3D: React.FC<BodyIllustration3DProps> = ({ personal
               {muscleDef > 1.05 && (
                 <>
                   {/* Peitoral */}
-                  <ellipse cx="45" cy="45" rx="4" ry="6" fill="rgba(0,0,0,0.1)" />
-                  <ellipse cx="55" cy="45" rx="4" ry="6" fill="rgba(0,0,0,0.1)" />
+                  <ellipse cx="45" cy="32" rx="3" ry="4" fill="rgba(0,0,0,0.15)" />
+                  <ellipse cx="55" cy="32" rx="3" ry="4" fill="rgba(0,0,0,0.15)" />
                   
                   {/* Abdômen */}
-                  <rect x="46" y="55" width="8" height="3" fill="rgba(0,0,0,0.1)" rx="1" />
-                  <rect x="46" y="60" width="8" height="3" fill="rgba(0,0,0,0.1)" rx="1" />
-                  <rect x="46" y="65" width="8" height="3" fill="rgba(0,0,0,0.1)" rx="1" />
+                  <rect x="47" y="40" width="6" height="2" fill="rgba(0,0,0,0.15)" rx="1" />
+                  <rect x="47" y="44" width="6" height="2" fill="rgba(0,0,0,0.15)" rx="1" />
+                  <rect x="47" y="48" width="6" height="2" fill="rgba(0,0,0,0.15)" rx="1" />
+                  <rect x="47" y="52" width="6" height="2" fill="rgba(0,0,0,0.15)" rx="1" />
                 </>
               )}
               
-              {/* Braços */}
+              {/* Braço esquerdo */}
               <ellipse 
                 cx="30" 
-                cy="50" 
-                rx={4 * muscleDef} 
-                ry="20" 
+                cy="40" 
+                rx={3 * muscleDef} 
+                ry="16" 
                 fill={skinColor}
                 stroke="rgba(0,0,0,0.1)" 
                 strokeWidth="0.5"
-                transform="rotate(-10 30 50)"
               />
+              
+              {/* Braço direito */}
               <ellipse 
                 cx="70" 
-                cy="50" 
-                rx={4 * muscleDef} 
-                ry="20" 
+                cy="40" 
+                rx={3 * muscleDef} 
+                ry="16" 
                 fill={skinColor}
                 stroke="rgba(0,0,0,0.1)" 
                 strokeWidth="0.5"
-                transform="rotate(10 70 50)"
               />
               
-              {/* Antebraços */}
+              {/* Antebraço esquerdo */}
               <ellipse 
-                cx="25" 
-                cy="75" 
-                rx="3" 
-                ry="15" 
+                cx="28" 
+                cy="60" 
+                rx="2.5" 
+                ry="12" 
                 fill={skinColor}
                 stroke="rgba(0,0,0,0.1)" 
                 strokeWidth="0.5"
-                transform="rotate(-5 25 75)"
               />
+              
+              {/* Antebraço direito */}
               <ellipse 
-                cx="75" 
-                cy="75" 
-                rx="3" 
-                ry="15" 
+                cx="72" 
+                cy="60" 
+                rx="2.5" 
+                ry="12" 
                 fill={skinColor}
                 stroke="rgba(0,0,0,0.1)" 
                 strokeWidth="0.5"
-                transform="rotate(5 75 75)"
               />
               
-              {/* Mãos */}
-              <circle cx="23" cy="88" r="3" fill={skinColor} />
-              <circle cx="77" cy="88" r="3" fill={skinColor} />
+              {/* Mão esquerda */}
+              <circle cx="26" cy="74" r="2.5" fill={skinColor} />
               
-              {/* Quadril */}
+              {/* Mão direita */}
+              <circle cx="74" cy="74" r="2.5" fill={skinColor} />
+              
+              {/* Quadril/Cintura */}
               <ellipse 
                 cx="50" 
-                cy="85" 
-                rx={10 * bodyWidth} 
-                ry="8" 
+                cy="78" 
+                rx={9 * bodyWidth} 
+                ry="6" 
                 fill={skinColor}
                 stroke="rgba(0,0,0,0.1)" 
                 strokeWidth="0.5"
               />
               
-              {/* Coxas */}
+              {/* Coxa esquerda */}
               <ellipse 
-                cx="42" 
-                cy="110" 
-                rx={5 * bodyWidth} 
-                ry="20" 
-                fill={skinColor}
-                stroke="rgba(0,0,0,0.1)" 
-                strokeWidth="0.5"
-              />
-              <ellipse 
-                cx="58" 
-                cy="110" 
-                rx={5 * bodyWidth} 
-                ry="20" 
+                cx="45" 
+                cy="95" 
+                rx={4 * bodyWidth} 
+                ry="18" 
                 fill={skinColor}
                 stroke="rgba(0,0,0,0.1)" 
                 strokeWidth="0.5"
               />
               
-              {/* Panturrilhas */}
+              {/* Coxa direita */}
               <ellipse 
-                cx="42" 
-                cy="135" 
+                cx="55" 
+                cy="95" 
+                rx={4 * bodyWidth} 
+                ry="18" 
+                fill={skinColor}
+                stroke="rgba(0,0,0,0.1)" 
+                strokeWidth="0.5"
+              />
+              
+              {/* Panturrilha esquerda */}
+              <ellipse 
+                cx="45" 
+                cy="120" 
                 rx="3" 
-                ry="12" 
-                fill={skinColor}
-                stroke="rgba(0,0,0,0.1)" 
-                strokeWidth="0.5"
-              />
-              <ellipse 
-                cx="58" 
-                cy="135" 
-                rx="3" 
-                ry="12" 
+                ry="14" 
                 fill={skinColor}
                 stroke="rgba(0,0,0,0.1)" 
                 strokeWidth="0.5"
               />
               
-              {/* Pés */}
-              <ellipse cx="42" cy="148" rx="4" ry="2" fill="#8B4513" />
-              <ellipse cx="58" cy="148" rx="4" ry="2" fill="#8B4513" />
+              {/* Panturrilha direita */}
+              <ellipse 
+                cx="55" 
+                cy="120" 
+                rx="3" 
+                ry="14" 
+                fill={skinColor}
+                stroke="rgba(0,0,0,0.1)" 
+                strokeWidth="0.5"
+              />
+              
+              {/* Pé esquerdo */}
+              <ellipse cx="45" cy="138" rx="3.5" ry="2" fill="#8B4513" />
+              
+              {/* Pé direito */}
+              <ellipse cx="55" cy="138" rx="3.5" ry="2" fill="#8B4513" />
             </g>
             
             {/* Indicadores de medidas */}
             <g opacity="0.7">
               {/* Linha de altura */}
-              <line x1="85" y1="10" x2="85" y2="145" stroke="#60A5FA" strokeWidth="1" strokeDasharray="2,2" />
-              <text x="87" y="80" fill="#60A5FA" fontSize="6" transform="rotate(90 87 80)">
+              <line x1="85" y1="6" x2="85" y2="140" stroke="#60A5FA" strokeWidth="1" strokeDasharray="2,2" />
+              <text x="87" y="75" fill="#60A5FA" fontSize="6" transform="rotate(90 87 75)">
                 {personalData.height}cm
               </text>
               
               {/* Linha de peso */}
-              <circle cx="15" cy="30" r="8" fill="rgba(34, 197, 94, 0.2)" stroke="#22C55E" strokeWidth="1" />
-              <text x="15" y="33" fill="#22C55E" fontSize="5" textAnchor="middle">
+              <circle cx="15" cy="25" r="8" fill="rgba(34, 197, 94, 0.2)" stroke="#22C55E" strokeWidth="1" />
+              <text x="15" y="28" fill="#22C55E" fontSize="5" textAnchor="middle">
                 {personalData.weight}kg
               </text>
             </g>
